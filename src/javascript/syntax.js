@@ -77,17 +77,48 @@ const functions =
         return array;
     },
     whileLoops: () => {
-        let text = "";
-        let i = 0;
-        console.log(text);
-        console.log("first", i);
+        let array = [];
+        let i = 1;
         while (i < 6) {
-            text = + i;
+            array.push(i);
             i++;
-            console.log(text);
+        } return array;
+    },
+    doWhileLoop: () => {
+        let array = [];
+        let i = 1;
+        do {
+            array.push(i);
+            i++;
+        }
+        while (i < 6);
+        return array;
+    },
+    forOfLoop: () => {
+        let array = ["apple", "oranges", "grapes"];
+        let item = "";
+        for (item of array) {
+            console.log(item);
+        }
+    },
+    forInLoop: () => {
+        let objBin = {
+            apple: 5,
+            oranges: 10,
+            grapes: 1000
         };
-        return text;
-    }
+        let item = "";
+        for (item in objBin) {
+            console.log(item);
+        }
+    },
+    forEachLoop: () => {
+        let array = ["Zero", "One", "Two", "Three", "Four"];
+        function myForFunction(item, index) {
+            console.log(item);
+        }
+        array.forEach(myForFunction);
+    },
 };
 
 export default functions;

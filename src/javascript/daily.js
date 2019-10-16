@@ -50,14 +50,14 @@ const functions =
             oranges: 10,
             grapes: 1000
         };
-        let item ="";
+        let item = "";
         for (item in objBin) {
             console.log(item);
         }
     },
     forOfLoop: () => {
         let array = ["apple", "oranges", "grapes"];
-        let item ="";
+        let item = "";
         for (item of array) {
             console.log(item);
         }
