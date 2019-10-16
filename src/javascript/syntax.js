@@ -79,9 +79,12 @@ const functions =
     whileLoops: () => {
         let text = "";
         let i = 0;
-        while (i < 5) {
+        console.log(text);
+        console.log("first", i);
+        while (i < 6) {
             text = + i;
             i++;
+            console.log(text);
         };
         return text;
     }

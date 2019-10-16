@@ -37,6 +37,6 @@ test("for loop run counter 5 times and stop", () => {
     expect(functions.forLoop([1, 2, 3, 4, 5])).toStrictEqual([1, 2, 3, 4, 5]);
 });
 
-test("while loop count to ten", () => {
-    expect(functions.whileLoops()).toBe();
+test("while loop count to five", () => {
+    expect(functions.whileLoops()).toBe(5);
 });
