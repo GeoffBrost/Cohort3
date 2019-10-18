@@ -21,24 +21,24 @@ const functions = {
         return (num1 / num2)
     },
     myCal: () => {
-        console.log("testing");
-        let p1 = document.getElementById("p1").value;
-        let p2 = document.getElementById("p2").value;
+        let p1 = parseFloat(document.getElementById("p1").value);
+        let p2 = parseFloat(document.getElementById("p2").value);
         let ops = document.getElementById("operation").value;
         switch (ops) {
-            case add:
-                functions.add(p1, p2);
-                break;
-            case sub:
-                functions.sub(p1, p2);
-                break;
-            case multiply:
-                functions.multiply(p1, p2);
-                break;
-            case divide:
-                functions.divide(p1, p2);
-                break;
+            case 'add':
+                return functions.add(p1, p2);
+            case 'subtract':
+                return functions.subtract(p1, p2);
+            case 'multiply':
+                return functions.multiply(p1, p2);
+            case 'divide':
+                return functions.divide(p1, p2);
         }
+    },
+    resetCal: () => {
+        document.getElementById("p1").value="";
+        document.getElementById("p2").value="";
+        document.getElementById("ending").value="";
     }
 };
 

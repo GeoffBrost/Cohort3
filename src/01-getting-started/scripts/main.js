@@ -9,6 +9,9 @@ idNumber.addEventListener('change', (() => {
     idNumberSize.textContent = functions.size(idNumber.value);
 }));
 
-result.addEventListener("click", functiuon() {
-    ending.textContent = functions.myCal()
+result.addEventListener("click", function() {
+    ending.value = functions.myCal()
     });
+clear.addEventListener("click", function(){
+    functions.resetCal()
+});

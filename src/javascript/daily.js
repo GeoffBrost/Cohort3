@@ -106,8 +106,8 @@ const functions =
         ];
         function myForFunction(role, Wingman) {
             console.log();
+        }
     }
-}
 };
 
 export default functions;
