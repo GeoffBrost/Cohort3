@@ -38,5 +38,5 @@ test("for loop run counter 5 times and stop", () => {
 });
 
 test("while loop count to five", () => {
-    expect(functions.whileLoops()).toBe(5);
+    expect(functions.whileLoops()).toStrictEqual([1,2,3,4,5]);
 });
