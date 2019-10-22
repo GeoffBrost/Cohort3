@@ -1,7 +1,7 @@
 import functions from './functions.js';
 
 // **********
-//
+//cd
 // Add the event listeners
 // 
 
@@ -14,4 +14,8 @@ result.addEventListener("click", function() {
     });
 clear.addEventListener("click", function(){
     functions.resetCal()
+});
+
+canTaxEnter.addEventListener('click', function(){
+    functions.taxCal()
 });

@@ -39,10 +39,14 @@ const functions = {
         document.getElementById("p1").value="";
         document.getElementById("p2").value="";
         document.getElementById("ending").value="";
-    }
+    },
+    taxCal: () => {
+        let taxCalInput = parseFloat(document.getElementById("canTaxInput").value);
+        return("tax cal",(taxCalInput/100) *15);
+    },
+
+
 };
-
-
 
 
 export default functions;

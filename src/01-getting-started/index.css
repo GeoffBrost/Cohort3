@@ -68,11 +68,15 @@ html {
 
 /* Turn off parallax scrolling for tablets and phones */
 
-#myCal {
-    text-align: center;
-    height:100px;
+#myCalTable
+    table.center {
+        margin-left:right;   
+        margin-right:auto;
 }
 
 #calTitle {
     text-align: left;
+}
+#CanTax {
+    text-align: center;
 }

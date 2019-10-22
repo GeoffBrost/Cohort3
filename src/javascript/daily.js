@@ -4,7 +4,7 @@ const functions =
         if (p1 === p2) {
             return true;
         } else if (p1 !== p2) {
-            // console.log("parameter 1 is " + "parameter 2 is " + p2);
+            console.log("parameter 1 is " + "parameter 2 is " + p2);
             return false;
         }
     },
@@ -14,9 +14,9 @@ const functions =
         return fullname;
     },
     makeEmailObj: (name) => {
-        let fullname = `${name.fname}.${name.lname}@evolveu.ca`;
-        fullname = fullname.toLowerCase();
-        return fullname;
+        let email = `${name.fname}.${name.lname}@evolveu.ca`;
+        email = email.toLowerCase();
+        return email;
     },
     forLoop: () => {
         let array = [];
@@ -52,14 +52,12 @@ const functions =
         };
         let item = "";
         for (item in objBin) {
-            console.log(item);
         }
     },
     forOfLoop: () => {
         let array = ["apple", "oranges", "grapes"];
         let item = "";
         for (item of array) {
-            console.log(item);
         }
     },
     //Oct 17 Daily More Array Work
@@ -107,7 +105,12 @@ const functions =
         function myForFunction(role, Wingman) {
             console.log();
         }
+    },
+    //Oct 21 loopStaff - October 21, 2019
+    loopStaff : (array1) => {
+        let staffEmail =array1.map(functions.makeEmailObj);
+        return staffEmail;
     }
-};
+    };
 
 export default functions;

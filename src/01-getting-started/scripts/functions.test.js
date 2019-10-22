@@ -17,3 +17,7 @@ test('Does that add function work?', () => {
     expect(functions.divide(10,5)).toBe(2);
     expect(functions.divide(5,2)).toBe(2.5);
 });
+
+test("Tax Calculator", () => { 
+    expect(functions.taxCal()).toBe(0.30);
+});
