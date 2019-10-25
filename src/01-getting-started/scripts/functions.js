@@ -42,7 +42,7 @@ const functions = {
     },
     taxCal: () => {
         let taxCalInput = parseFloat(document.getElementById("canTaxInput").value);
-        return("tax cal",(taxCalInput/100) *15);
+        return console.log("tax cal",(taxCalInput/100) *15);
     },
 
 
