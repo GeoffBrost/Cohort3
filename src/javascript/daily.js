@@ -61,38 +61,25 @@ const functions =
         }
     },
     //Oct 17 Daily More Array Work
-    mapLoop: () => {
-        let objBin = [
-            { id: 20, name: 'Piett', rank: 'Capatin' },
-            { id: 24, name: 'Veers', rank: 'General' },
-            { id: 56, name: 'Ozzel', rank: 'Admiral' },
-            { id: 88, name: 'Jerjerrod', rank: 'Commander' }
-        ];
-        let officersRank = objBin.map(officer => officer.rank);
+    mapLoop: (array) => {
+        let officersRank = array.map(array => array.rank);
+        return officersRank;
     },
-    reduceLoop: () => {
-        let objBin = [
-            { id: 22, name: 'Piett', rank: 'Capatin', years: 15 },
-            { id: 71, name: 'Veers', rank: 'General', years: 20 },
-            { id: 88, name: 'Ozzel', rank: 'Admiral', years: 22 },
-            { id: 15, name: 'Jerjerrod', rank: 'Commander', years: 10 }
-        ];
-        let officersyears = objBin.reduce((acc, objBin) => acc + objBin.years, 0);
-        let officerexp = objBin.reduce(function (oldest, objBin) {
-            return (oldest.years || 0) > objBin.years ? oldest : objBin;
-        }, {});
+    reduceLoopWithAcc: (array) => {
+        let totalYears = array.reduce((acc, officer) => acc + officer.years, 0);
+        return totalYears;
     },
-    filterLoop: () => {
-        let pilots = [
-            { id: 2, name: "Wedge Antilles", faction: "Rebels" },
-            { id: 3, name: "Biggs Darklighter", faction: "Rebels" },
-            { id: 5, name: "Luke Skywalker", faction: "Rebels" },
-            { id: 1, name: "Darth Vader", factions: "Empire" },
-            { id: 421, name: "Mualer Mithel", factions: "Empire" },
-            { id: 5555, name: "Backstaber", faction: "Empire" }
-        ];
-        let rebels = pilots.filter(pilot => pilot.faction === "Rebels");
-    },
+filterLoop: () => {
+    let pilots = [
+        { id: 2, name: "Wedge Antilles", faction: "Rebels" },
+        { id: 3, name: "Biggs Darklighter", faction: "Rebels" },
+        { id: 5, name: "Luke Skywalker", faction: "Rebels" },
+        { id: 1, name: "Darth Vader", factions: "Empire" },
+        { id: 421, name: "Mualer Mithel", factions: "Empire" },
+        { id: 5555, name: "Backstaber", faction: "Empire" }
+    ];
+    let rebels = pilots.filter(pilot => pilot.faction === "Rebels");
+},
     forEachLoop: () => {
         let pilots = [
             { id: 2, name: "Wedge Antilles", faction: "Rebels", role: "Wingman" },
@@ -106,11 +93,11 @@ const functions =
             console.log();
         }
     },
-    //Oct 21 loopStaff - October 21, 2019
-    loopStaff : (array1) => {
-        let staffEmail =array1.map(functions.makeEmailObj);
-        return staffEmail;
-    }
+        //Oct 21 loopStaff - October 21, 2019
+        loopStaff : (array1) => {
+            let staffEmail = array1.map(functions.makeEmailObj);
+            return staffEmail;
+        }
     };
 
 export default functions;
