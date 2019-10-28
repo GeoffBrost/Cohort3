@@ -69,17 +69,24 @@ const functions =
         let totalYears = array.reduce((acc, officer) => acc + officer.years, 0);
         return totalYears;
     },
-filterLoop: () => {
-    let pilots = [
-        { id: 2, name: "Wedge Antilles", faction: "Rebels" },
-        { id: 3, name: "Biggs Darklighter", faction: "Rebels" },
-        { id: 5, name: "Luke Skywalker", faction: "Rebels" },
-        { id: 1, name: "Darth Vader", factions: "Empire" },
-        { id: 421, name: "Mualer Mithel", factions: "Empire" },
-        { id: 5555, name: "Backstaber", faction: "Empire" }
-    ];
-    let rebels = pilots.filter(pilot => pilot.faction === "Rebels");
-},
+    reduceLoopWithGreatest:(array) => {
+        let mostExp = array.reduce(function (oldest, officer) {
+            return (oldest.years || 0) > officer.years ? oldest : officer;
+          }, {});
+          return mostExp;
+    },
+
+    filterLoop: () => {
+        let pilots = [
+            { id: 2, name: "Wedge Antilles", faction: "Rebels" },
+            { id: 3, name: "Biggs Darklighter", faction: "Rebels" },
+            { id: 5, name: "Luke Skywalker", faction: "Rebels" },
+            { id: 1, name: "Darth Vader", factions: "Empire" },
+            { id: 421, name: "Mualer Mithel", factions: "Empire" },
+            { id: 5555, name: "Backstaber", faction: "Empire" }
+        ];
+        let rebels = pilots.filter(pilot => pilot.faction === "Rebels");
+    },
     forEachLoop: () => {
         let pilots = [
             { id: 2, name: "Wedge Antilles", faction: "Rebels", role: "Wingman" },
@@ -93,11 +100,11 @@ filterLoop: () => {
             console.log();
         }
     },
-        //Oct 21 loopStaff - October 21, 2019
-        loopStaff : (array1) => {
-            let staffEmail = array1.map(functions.makeEmailObj);
-            return staffEmail;
-        }
-    };
+    //Oct 21 loopStaff - October 21, 2019
+    loopStaff: (array1) => {
+        let staffEmail = array1.map(functions.makeEmailObj);
+        return staffEmail;
+    }
+};
 
 export default functions;

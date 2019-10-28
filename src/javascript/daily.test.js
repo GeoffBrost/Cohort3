@@ -78,15 +78,18 @@ test('map looping test', () => {
         .toEqual("Commander");
 });
 
-// test("reduce loop with accumlator", () => {
-//     let objBin = [
-//         { id: 22, name: 'Piett', rank: 'Capatin', years: 15 },
-//         { id: 71, name: 'Veers', rank: 'General', years: 20 },
-//         { id: 88, name: 'Ozzel', rank: 'Admiral', years: 22 },
-//         { id: 15, name: 'Jerjerrod', rank: 'Commander', years: 10 }
-//     ];
-//     const totalYears = functions.reduceLoopWithAcc(objBin);
-//         expect(totalYears)
-//             .toEqual(67);
-//         expect(bestOff)
-// });
+test("reduce loop with accumlator", () => {
+    let objBin = [
+        { id: 22, name: 'Piett', rank: 'Capatin', years: 15 },
+        { id: 71, name: 'Veers', rank: 'General', years: 20 },
+        { id: 88, name: 'Ozzel', rank: 'Admiral', years: 22 },
+        { id: 15, name: 'Jerjerrod', rank: 'Commander', years: 10 }
+    ];
+    const totalYears = functions.reduceLoopWithAcc(objBin);
+    const mostExp = functions.reduceLoopWithGreatest(objBin);
+        expect(totalYears)
+            .toEqual(67);
+       expect(mostExp.years)
+            .toEqual(22);
+
+});
