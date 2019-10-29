@@ -93,3 +93,26 @@ test("reduce loop with accumlator", () => {
             .toEqual(22);
 
 });
+test("filter looper test",() => {
+    let pilots = [
+        { id: 2, name: "Wedge Antilles", faction: "Rebels", role: "Wingman" },
+        { id: 421, name: "Mualer Mithel", factions: "Empire", role: "Wingman" },
+        { id: 5, name: "Luke Skywalker", faction: "Rebels", role: "Leader" },
+        { id: 1, name: "Darth Vader", factions: "Empire", role: "Leader" }, 
+        { id: 5555, name: "Backstaber", faction: "Empire", role: "Wingman" },
+        { id: 3, name: "Biggs Darklighter", faction: "Rebels", role: "Wingman" }
+    ];
+    const rebelspilots = functions.filterLoop(pilots);
+    const pilotsName = functions.forEachLoop(pilots);
+    expect(rebelspilots[0])
+        .toEqual({ id: 2, name: "Wedge Antilles", faction: "Rebels", role: "Wingman" });
+    expect(rebelspilots[1])
+        .toEqual({ id: 5, name: "Luke Skywalker", faction: "Rebels", role: "Leader" });
+    expect(pilotsName[0])
+        .toEqual("Wedge Antilles");
+    expect(pilotsName[2])
+        .toEqual("Luke Skywalker");
+    expect(pilotsName[5])
+        .toEqual("Biggs Darklighter");
+
+});

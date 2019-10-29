@@ -94,24 +94,19 @@ const functions =
         while (i < 6);
         return array;
     },
-    forOfLoop: () => {
-        let array = ["apple", "oranges", "grapes"];
-        let item = "";
-        for (item of array) {
-            console.log(item);
-        }
+    forOfLoop: (array) => {
+        let array2 =[];
+        for (let item of array) {
+        array2.push(item);
+    }
+        return array2;
     },
-    forInLoop: () => {
-        let objBin = {
-            apple: 5,
-            oranges: 10,
-            grapes: 1000
-        };
-        let item = "";
-        for (item in objBin) {
-            console.log(item);
-        }
-    },
+    // forInLoop: (array) => {
+    //     let array2 ={};
+    //     for (let item in array) {
+    //     }
+    //     return array2;
+    // },
     forEachLoop: () => {
         let array = ["Zero", "One", "Two", "Three", "Four"];
         function myForFunction(item, index) {

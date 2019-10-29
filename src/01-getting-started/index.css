@@ -69,11 +69,9 @@ html {
 /* Turn off parallax scrolling for tablets and phones */
 
 #myCalTable
-    table.center {
-        margin-left:right;   
-        margin-right:auto;
-}
-
+    {
+        align-items: center;
+    }
 #calTitle {
     text-align: left;
 }

@@ -14,6 +14,7 @@ import { exportAllDeclaration } from "@babel/types";
 
 test("hello world", () => {
     console.log("hello world from test");
+    expect(functions.helloWorld()).toBe(undefined);
 });
 test("sum", () => {
     expect(functions.sum(2, 2)).toBe(4);

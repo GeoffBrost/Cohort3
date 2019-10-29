@@ -21,8 +21,8 @@ const functions = {
         return (num1 / num2)
     },
     myCal: () => {
-        let p1 = parseFloat(document.getElementById("p1").value);
-        let p2 = parseFloat(document.getElementById("p2").value);
+        let p1 = parseFloat("p1").value);
+        let p2 = parseFloat("p2").value);
         let ops = document.getElementById("operation").value;
         switch (ops) {
             case 'add':

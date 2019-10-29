@@ -69,36 +69,24 @@ const functions =
         let totalYears = array.reduce((acc, officer) => acc + officer.years, 0);
         return totalYears;
     },
-    reduceLoopWithGreatest:(array) => {
+    reduceLoopWithGreatest: (array) => {
         let mostExp = array.reduce(function (oldest, officer) {
             return (oldest.years || 0) > officer.years ? oldest : officer;
-          }, {});
-          return mostExp;
+        }, {});
+        return mostExp;
     },
 
-    filterLoop: () => {
-        let pilots = [
-            { id: 2, name: "Wedge Antilles", faction: "Rebels" },
-            { id: 3, name: "Biggs Darklighter", faction: "Rebels" },
-            { id: 5, name: "Luke Skywalker", faction: "Rebels" },
-            { id: 1, name: "Darth Vader", factions: "Empire" },
-            { id: 421, name: "Mualer Mithel", factions: "Empire" },
-            { id: 5555, name: "Backstaber", faction: "Empire" }
-        ];
-        let rebels = pilots.filter(pilot => pilot.faction === "Rebels");
+    filterLoop: (array) => {
+        let rebels = array.filter(pilot => pilot.faction === "Rebels");
+        return rebels;
     },
-    forEachLoop: () => {
-        let pilots = [
-            { id: 2, name: "Wedge Antilles", faction: "Rebels", role: "Wingman" },
-            { id: 3, name: "Biggs Darklighter", faction: "Rebels", role: "Wingman" },
-            { id: 5, name: "Luke Skywalker", faction: "Rebels", role: "Leader" },
-            { id: 1, name: "Darth Vader", factions: "Empire", role: "Leader" },
-            { id: 421, name: "Mualer Mithel", factions: "Empire", role: "Wingman" },
-            { id: 5555, name: "Backstaber", faction: "Empire", role: "Wingman" }
-        ];
-        function myForFunction(role, Wingman) {
-            console.log();
+    forEachLoop: (array) => {
+        let pilotName = [];
+        array.forEach(findWingMan);
+        function findWingMan(item) {
+            pilotName.push(item.name);
         }
+        return pilotName;
     },
     //Oct 21 loopStaff - October 21, 2019
     loopStaff: (array1) => {

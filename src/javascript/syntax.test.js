@@ -20,11 +20,10 @@ test("If else path testing", () => {
     expect(functions.simpleifelse("no")).toBe("no");
     expect(functions.simpleifelse("maybe")).toBe("maybe");
 });
-// test("functions grab p1 p2 returns" , () => {
-//     expect(functions.simplereturn(p1)).toBe(p1);
-//     expect(functions.simplereturn(p2)).toBe(p2);
-//     expect(functions.simplereturn(p1+p2)).toBe(p1+p2);
-// });
+test("functions grab p1 p2 returns", () => {
+    expect(functions.simplereturn(1, 2)).toBe(3);
+    expect(functions.simplereturn(1, 1)).toBe(2);
+});
 
 test("add into array font, end, update", () => {
     expect(functions.baseArray()).toStrictEqual([2, 3, 4]);
@@ -38,5 +37,30 @@ test("for loop run counter 5 times and stop", () => {
 });
 
 test("while loop count to five", () => {
-    expect(functions.whileLoops()).toStrictEqual([1,2,3,4,5]);
+    expect(functions.whileLoops()).toStrictEqual([1, 2, 3, 4, 5]);
 });
+
+test("do while loop", () => {
+    expect(functions.doWhileLoop())
+        .toStrictEqual([1, 2, 3, 4, 5]);
+});
+
+test("for of loop", ()=> {
+    const array = ["apple", "oranges", "grapes"];
+    expect(functions.forOfLoop(array)[0])
+        .toStrictEqual("apple");
+    expect(functions.forOfLoop(array)[1])
+        .toEqual("oranges");
+    expect(functions.forOfLoop(array)[2])
+        .toEqual("grapes");
+});
+// test("for In loop", () => {
+//     const array = {
+//         apple: 5,
+//         oranges: 10,
+//         grapes: 1000
+//     };
+//     expect(functions.forInLoop(array))
+//         .toEqual("oranges");
+//         console.log(array2);
+// });
