@@ -4,7 +4,7 @@ const functions =
         if (p1 === p2) {
             return true;
         } else if (p1 !== p2) {
-            console.log("parameter 1 is " + "parameter 2 is " + p2);
+            // console.log("parameter 1 is " + "parameter 2 is " + p2);
             return false;
         }
     },
@@ -92,6 +92,17 @@ const functions =
     loopStaff: (array1) => {
         let staffEmail = array1.map(functions.makeEmailObj);
         return staffEmail;
+    },
+    // Oct 30 daily acc total and average
+    accumulatorBal: (array) => {
+        let totalBal = array.reduce((acc, people) => acc + people.balance, 0);
+        return totalBal;
+    },
+    averageBalance: (array) => {
+        let totalBal = functions.accumulatorBal(array);
+        let averageBal = totalBal / array.length;
+        return averageBal.toFixed(2);
+
     }
 };
 

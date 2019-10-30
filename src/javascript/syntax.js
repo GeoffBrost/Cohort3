@@ -101,12 +101,12 @@ const functions =
     }
         return array2;
     },
-    // forInLoop: (array) => {
-    //     let array2 ={};
-    //     for (let item in array) {
-    //     }
-    //     return array2;
-    // },
+    forInLoop: (array) => {
+        let array2 ={};
+        for (let item in array) {
+        }
+        return array2;
+    },
     forEachLoop: () => {
         let array = ["Zero", "One", "Two", "Three", "Four"];
         function myForFunction(item, index) {

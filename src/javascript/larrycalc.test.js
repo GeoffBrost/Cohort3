@@ -5,8 +5,8 @@ test("hello world", () => {
     functions.helloworld();
 });
 test("sum", () => {
-    expect(functions.sum(1, 1)).toBe(0);
-    expect(functions.sum()).toBe()
+    expect(functions.sum(1, 1)).toBe(2);
+    expect(functions.sum(3,1)).toBe(4)
 });
 test("sum2",() =>{
     expect(functions.sum2(30,2)).toBe(32);

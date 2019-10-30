@@ -1,4 +1,33 @@
 import functions from './daily.js'
+const data = {
+    staff: [
+        { fname: "Jane", lname: "Smith", balance: 10 },
+        { fname: "Liam", lname: "Henry", balance: 1000 },
+        { fname: "Emma", lname: "Jones", balance: 1330 },
+        { fname: "Olivia", lname: "Notly", balance: 310 },
+        { fname: "Noah", lname: "Ho", balance: 503 },
+        { fname: "William", lname: "Lee", balance: 520 },
+        { fname: "Benjamin", lname: "Amis", balance: 150 },
+    ],
+    company: "EvolveU",
+    city: "Calgary",
+    prov: "Alberta"
+};
+let test2 = [];
+test2.push(data.staff[0]);
+test2.push(data.staff[3]);
+test2.push(data.staff[5]);
+console.log(test2);
+
+test("More Array Oct ", () =>{
+    expect(functions.accumulatorBal(data.staff)).toBe(3823);
+    expect(functions.accumulatorBal(test2)).toBe(840);
+});
+test("averageBalance",() => {
+    expect(functions.averageBalance(data.staff)).toBe(546.14);
+    expect(functions.averageBalance(test2)).toBe(280);
+});    
+
 test("checkMe", function () {
     expect(functions.assertEquals(2, 2)).toBe(true);
     expect(functions.assertEquals(1, 3)).toBe(false);
@@ -39,20 +68,7 @@ test("for in for of ", () => {
 
 test('email builder for company', () => {
 
-    const data = {
-        staff: [
-            { fname: "Jane", lname: "Smith", balance: 10 },
-            { fname: "Liam", lname: "Henry", balance: 1000 },
-            { fname: "Emma", lname: "Jones", balance: 1330 },
-            { fname: "Olivia", lname: "Notly", balance: 310 },
-            { fname: "Noah", lname: "Ho", balance: 503 },
-            { fname: "William", lname: "Lee", balance: 520 },
-            { fname: "Benjamin", lname: "Amis", balance: 150 },
-        ],
-        company: "EvolveU",
-        city: "Calgary",
-        prov: "Alberta"
-    };
+   
     const staffEmail = functions.loopStaff(data.staff);
     expect(staffEmail[0])
         .toEqual("jane.smith@evolveu.ca");

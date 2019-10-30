@@ -10,14 +10,22 @@ test('Check the sizes', () => {
 });
 
 test('Does that add function work?', () => {
-    expect(functions.add(1,2)).toBe(3);
-    expect(functions.add(101,202)).toBe(303);
-    expect(functions.subtract(5,4)).toBe(1);
-    expect(functions.multiply(5,5)).toBe(25);
-    expect(functions.divide(10,5)).toBe(2);
-    expect(functions.divide(5,2)).toBe(2.5);
+    expect(functions.add(1, 2)).toBe(3);
+    expect(functions.add(101, 202)).toBe(303);
+    expect(functions.subtract(5, 4)).toBe(1);
+    expect(functions.multiply(5, 5)).toBe(25);
+    expect(functions.divide(10, 5)).toBe(2);
+    expect(functions.divide(5, 2)).toBe(2.5);
 });
 
-test("Tax Calculator", () => { 
-    expect(functions.taxCal()).toBe(0.30);
+// test("Tax Calculator", () => { 
+//     expect(functions.taxCal()).toBe(0.30);
+// });
+//Canadian Taxes 
+test('Tax Cal', () => {
+    let income = [1,47256, 52505, 148955];     //
+    expect(functions.TaxCala(income[0])).toEqual(.15);
+    expect(functions.TaxCala(income[1])).toEqual(7088.4);
+    // expect(functions.TaxCala(income[1])).toEqual(7637.2);
+    // expect(functions.TaxCala(income[2])).toEqual();
 });

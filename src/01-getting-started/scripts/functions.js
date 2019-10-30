@@ -20,33 +20,25 @@ const functions = {
     divide: (num1, num2) => {
         return (num1 / num2)
     },
-    myCal: () => {
-        let p1 = parseFloat("p1").value);
-        let p2 = parseFloat("p2").value);
-        let ops = document.getElementById("operation").value;
-        switch (ops) {
-            case 'add':
-                return functions.add(p1, p2);
-            case 'subtract':
-                return functions.subtract(p1, p2);
-            case 'multiply':
-                return functions.multiply(p1, p2);
-            case 'divide':
-                return functions.divide(p1, p2);
+    
+    // taxCal: () => {
+    //     let taxCalInput = parseFloat(document.getElementById("canTaxInput").value);
+    //     return console.log("tax cal",(taxCalInput/100) *15);
+    // },
+    //Canadian Taxes
+
+    TaxCala: (income) => {
+        let tax15 = 0.15 * income
+        let remainder = 0; 
+        if (income > 47256 && income < 96256) {
+            remainder = income - 47256;
+            let tax20 = remainder * 0.20;
+            let resultTax = tax15 + tax20;
+            return resultTax;
+        }else {
+            return tax15;
         }
-    },
-    resetCal: () => {
-        document.getElementById("p1").value="";
-        document.getElementById("p2").value="";
-        document.getElementById("ending").value="";
-    },
-    taxCal: () => {
-        let taxCalInput = parseFloat(document.getElementById("canTaxInput").value);
-        return console.log("tax cal",(taxCalInput/100) *15);
-    },
-
-
-};
-
+    }
+}; 
 
 export default functions;
