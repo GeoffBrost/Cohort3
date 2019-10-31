@@ -101,9 +101,32 @@ const functions =
     averageBalance: (array) => {
         let totalBal = functions.accumulatorBal(array);
         let averageBal = totalBal / array.length;
-        return averageBal.toFixed(2);
+        return Number(averageBal.toFixed(2));
 
+    },
+    loopStaffIn: (array) => {
+       let email = [];
+       for (item in array)  
+    },
+    loopStaffOf: (array) => {
+        let email = [];
+        for (let item of array) {
+            email.push(functions.makeEmailObj(item));
+        }
+        return email;
+    },
+    loopStaffMap: (array1) => {
+        let staffEmail = array1.map(functions.makeEmailObj);
+        return staffEmail;
+    },
+    loopStaffForEach: (array) => {
+        let email = [];
+        array.forEach(function (person) {
+            email.push(functions.makeEmailObj(person));
+        });
+        return email;
     }
+
 };
 
 export default functions;

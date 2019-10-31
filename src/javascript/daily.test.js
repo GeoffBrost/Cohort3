@@ -17,16 +17,15 @@ let test2 = [];
 test2.push(data.staff[0]);
 test2.push(data.staff[3]);
 test2.push(data.staff[5]);
-console.log(test2);
 
-test("More Array Oct ", () =>{
+test("More Array Oct ", () => {
     expect(functions.accumulatorBal(data.staff)).toBe(3823);
     expect(functions.accumulatorBal(test2)).toBe(840);
 });
-test("averageBalance",() => {
+test("averageBalance", () => {
     expect(functions.averageBalance(data.staff)).toBe(546.14);
     expect(functions.averageBalance(test2)).toBe(280);
-});    
+});
 
 test("checkMe", function () {
     expect(functions.assertEquals(2, 2)).toBe(true);
@@ -34,7 +33,7 @@ test("checkMe", function () {
     expect(functions.assertEquals("a", "b")).toBe(false);
     expect(functions.assertEquals("a", "a")).toBe(true);
     expect(functions.assertEquals("2", 2)).toBe(false);
-    expect(functions.assertEquals("This is","This is")).toEqual(true);
+    expect(functions.assertEquals("This is", "This is")).toEqual(true);
 });
 
 test('email builder from an array', () => {
@@ -68,7 +67,7 @@ test("for in for of ", () => {
 
 test('email builder for company', () => {
 
-   
+
     const staffEmail = functions.loopStaff(data.staff);
     expect(staffEmail[0])
         .toEqual("jane.smith@evolveu.ca");
@@ -103,18 +102,18 @@ test("reduce loop with accumlator", () => {
     ];
     const totalYears = functions.reduceLoopWithAcc(objBin);
     const mostExp = functions.reduceLoopWithGreatest(objBin);
-        expect(totalYears)
-            .toEqual(67);
-       expect(mostExp.years)
-            .toEqual(22);
+    expect(totalYears)
+        .toEqual(67);
+    expect(mostExp.years)
+        .toEqual(22);
 
 });
-test("filter looper test",() => {
+test("filter looper test", () => {
     let pilots = [
         { id: 2, name: "Wedge Antilles", faction: "Rebels", role: "Wingman" },
         { id: 421, name: "Mualer Mithel", factions: "Empire", role: "Wingman" },
         { id: 5, name: "Luke Skywalker", faction: "Rebels", role: "Leader" },
-        { id: 1, name: "Darth Vader", factions: "Empire", role: "Leader" }, 
+        { id: 1, name: "Darth Vader", factions: "Empire", role: "Leader" },
         { id: 5555, name: "Backstaber", faction: "Empire", role: "Wingman" },
         { id: 3, name: "Biggs Darklighter", faction: "Rebels", role: "Wingman" }
     ];
@@ -131,4 +130,30 @@ test("filter looper test",() => {
     expect(pilotsName[5])
         .toEqual("Biggs Darklighter");
 
+});
+
+test('functions.loopStaffForEachdata.staff', () => {
+    const staffEmail = functions.loopStaffForEach(data.staff);
+    expect(staffEmail[0]).toBe('jane.smith@evolveu.ca');
+    expect(staffEmail[3]).toBe('olivia.notly@evolveu.ca');
+    expect(staffEmail[6]).toBe('benjamin.amis@evolveu.ca');
+});
+test("loopStaffMapping", () => {
+    const staffEmail = functions.loopStaffMap(data.staff);
+    expect(staffEmail[0]).toBe('jane.smith@evolveu.ca');
+    expect(staffEmail[3]).toBe('olivia.notly@evolveu.ca');
+    expect(staffEmail[6]).toBe('benjamin.amis@evolveu.ca');
+});
+test("loopStaffIn ", () => {
+    const staffEmail = functions.loopStaffIn(data.staff);
+
+    // expect(staffEmail[0]).toBe('jane.smith@evolveu.ca');
+    // expect(staffEmail[3]).toBe('olivia.notly@evolveu.ca');
+    // expect(staffEmail[6]).toBe('benjamin.amis@evolveu.ca');
+});
+test("loopStaffOF", () => {
+    const staffEmail = functions.loopStaffOf(data.staff);
+    expect(staffEmail[0]).toBe('jane.smith@evolveu.ca');
+    expect(staffEmail[3]).toBe('olivia.notly@evolveu.ca');
+    expect(staffEmail[6]).toBe('benjamin.amis@evolveu.ca');
 });
