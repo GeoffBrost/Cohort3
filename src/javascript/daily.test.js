@@ -145,8 +145,8 @@ test("loopStaffMapping", () => {
     expect(staffEmail[6]).toBe('benjamin.amis@evolveu.ca');
 });
 test("loopStaffIn ", () => {
-    const staffEmail = functions.loopStaffIn(data.staff);
-
+    const staffEmail = (data.staff);
+    console.log(staffemail);
     // expect(staffEmail[0]).toBe('jane.smith@evolveu.ca');
     // expect(staffEmail[3]).toBe('olivia.notly@evolveu.ca');
     // expect(staffEmail[6]).toBe('benjamin.amis@evolveu.ca');

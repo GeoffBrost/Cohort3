@@ -104,10 +104,10 @@ const functions =
         return Number(averageBal.toFixed(2));
 
     },
-    loopStaffIn: (array) => {
-       let email = [];
-       for (item in array)  
-    },
+    // loopStaffIn: (array) => {
+    //    let email = [];
+    //    for (item in array)  
+    // },
     loopStaffOf: (array) => {
         let email = [];
         for (let item of array) {
