@@ -1,8 +1,8 @@
 import functions from "./functions.js"
 
 idShowButton.addEventListener("click", () => {
-    functions.addItemToList
+    functions.showList()
 }),
-    idAddButton.addEventListener("click", () => {
+    idAddButton.addEventListener("click", () => { functions.addItemToList()
 
-    })
+});
