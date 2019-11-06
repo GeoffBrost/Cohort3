@@ -1,5 +1,8 @@
 const functions =
 {
+    //Nov 6 More Array Really
+
+    
     assertEquals: (p1, p2) => {
         if (p1 === p2) {
             return true;

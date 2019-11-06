@@ -1,0 +1,24 @@
+#idmaindiv{
+    display: flex;
+    justify-content: left;
+}
+#idleftside {
+    border: solid;
+    width :50%;
+    
+}
+#idrightside {
+    border: solid;
+    width :50%;
+    
+}
+#idh1title{
+    text-align :center;
+    font:red;
+}
+#idinputbox{
+    align-items: center;
+}
+.card {
+    font:red;
+}
