@@ -4,13 +4,11 @@
 }
 #idleftside {
     border: solid;
-    width :50%;
-    
+    width :50%;    
 }
 #idrightside {
     border: solid;
-    width :50%;
-    
+    width :50%;  
 }
 #idh1title{
     text-align :center;
@@ -21,4 +19,16 @@
 }
 .card {
     font:red;
+}
+#idCardCan{
+    border: dotted;
+    width: 100%;
+    height: 200px;
+
+}
+#newCard{
+    border: solid;
+    border: blue;
+    width: 50%;
+    height: 50%;
 }

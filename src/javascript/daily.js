@@ -98,8 +98,8 @@ const functions =
     },
     // Oct 30 daily acc total and average
     accumulatorBal: (array) => {
-        let totalBal = array.reduce((acc, people) => acc + people.balance, 0);
-        return totalBal;
+        return array.reduce((acc, people) => acc + people.balance, 0);
+
     },
     averageBalance: (array) => {
         let totalBal = functions.accumulatorBal(array);

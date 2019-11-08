@@ -1,4 +1,5 @@
-import functions from "./functions.js"
-idaddCards.addEventListener("click", () => { functions.addCard()
+import functions from "WWCfunctions.js"
 
+idaddCards.addEventListener("click", () => {
+    functions.addCardButtons("idCardCan");
 });

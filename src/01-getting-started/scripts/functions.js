@@ -20,25 +20,44 @@ const functions = {
     divide: (num1, num2) => {
         return (num1 / num2)
     },
-    
-    // taxCal: () => {
-    //     let taxCalInput = parseFloat(document.getElementById("canTaxInput").value);
-    //     return console.log("tax cal",(taxCalInput/100) *15);
-    // },
-    //Canadian Taxes
 
-    TaxCala: (income) => {
-        let tax15 = 0.15 * income
-        let remainder = 0; 
-        if (income > 47256 && income < 96256) {
-            remainder = income - 47256;
-            let tax20 = remainder * 0.20;
-            let resultTax = tax15 + tax20;
-            return resultTax;
-        }else {
-            return tax15;
+    //Canadian Taxes
+    
+    taxCal15: (income) => {
+        return Number(income) * 0.15
+    },
+    taxCal20: (income) => {
+        let base = income - 47630;
+        let rateBase = base * 0.205
+        let taxedBase = rateBase + 7145;
+        return taxedBase;
+    },
+    taxCal26:(income)=>{
+        let base = income - 95259;
+        let rateBase = base * 0.26
+        let taxedBase = rateBase + 16908;
+        return taxedBase;
+    },
+    taxCal29:(income)=>{
+        let base =income - 147667;
+        let rateBase = base * 0.29
+        let taxedBase = rateBase + 30535;
+        return taxedBase;
+    },
+    taxCal33:(income) => {
+        let base =income - 210371;
+        let rateBase = base * 0.33
+        let taxedBase = rateBase + 48719;
+        return taxedBase;
+    },
+    taxCalmain:()=>{
+        if (income < 47630){
+            functions.taxCal15(income);
         }
     }
-}; 
+        
+
+};
+
 
 export default functions;

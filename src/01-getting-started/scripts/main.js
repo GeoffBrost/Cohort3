@@ -16,8 +16,8 @@ clear.addEventListener("click", function () {
     mainfunctions.resetCal()
 });
 
-canTaxEnter.addEventListener('click', function () {
-    functions.taxCal()
+idcanTaxEnter.addEventListener('click', function () {
+    functions.taxCalmain()
 });
 
 const mainfunctions = {
@@ -41,5 +41,5 @@ const mainfunctions = {
         document.getElementById("p1").value = "";
         document.getElementById("p2").value = "";
         document.getElementById("ending").value = "";
-    }
+    },
 };

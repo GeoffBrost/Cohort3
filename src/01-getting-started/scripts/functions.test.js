@@ -18,14 +18,14 @@ test('Does that add function work?', () => {
     expect(functions.divide(5, 2)).toBe(2.5);
 });
 
-// test("Tax Calculator", () => { 
-//     expect(functions.taxCal()).toBe(0.30);
-// });
 //Canadian Taxes 
 test('Tax Cal', () => {
-    let income = [1,47256, 52505, 148955];     //
-    expect(functions.TaxCala(income[0])).toEqual(.15);
-    expect(functions.TaxCala(income[1])).toEqual(7088.4);
-    // expect(functions.TaxCala(income[1])).toEqual(7637.2);
-    // expect(functions.TaxCala(income[2])).toEqual();
+    let income = [1, 47256, 60000, 120000, 170000, 300000];
+    expect(functions.taxCal15(income[0])).toEqual(.15);
+    expect(functions.taxCal15(income[1])).toBe(7088.4);
+    expect(functions.taxCal20(income[2])).toBe(9680.85);
+    expect(functions.taxCal26(income[3])).toBe(23340.66);
+    expect(functions.taxCal29(income[4])).toBe(37011.57);
+    expect(functions.taxCal33(income[5])).toBe(78296.57);
+
 });
