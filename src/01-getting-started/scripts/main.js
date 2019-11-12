@@ -17,7 +17,9 @@ clear.addEventListener("click", function () {
 });
 
 idcanTaxEnter.addEventListener('click', function () {
-    functions.taxCalmain()
+    let income = Number(canTaxInput.value);
+    let taxResult = functions.taxCalmain(income);
+    canTaxpay.value = taxResult;
 });
 
 const mainfunctions = {
@@ -42,4 +44,5 @@ const mainfunctions = {
         document.getElementById("p2").value = "";
         document.getElementById("ending").value = "";
     },
+
 };

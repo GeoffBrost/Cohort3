@@ -1,5 +1,10 @@
 const functions =
 {
+    // Nov 8 Callback Exercise 
+    callBack:(array)=> {
+        return array.length;
+    },
+    
     //Nov 6 More Array Really
 
     

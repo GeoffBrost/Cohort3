@@ -1,7 +1,6 @@
 //PSC.Test 
 import functions from "./WWCfunctions.js"
-import { exportAllDeclaration } from "@babel/types";
-import { create } from "istanbul-reports";
+
 
 
 function createData() {

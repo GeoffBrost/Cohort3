@@ -50,13 +50,20 @@ const functions = {
         let taxedBase = rateBase + 48719;
         return taxedBase;
     },
-    taxCalmain:()=>{
+    taxCalmain:(income)=>{  
         if (income < 47630){
-            functions.taxCal15(income);
-        }
+            return functions.taxCal15(income);     
+         } 
+         else if (income > 47630 && income < 95259){
+           return functions.taxCal20(income);
+        }else if (income > 95259 && income < 147667){
+            return functions.taxCal26(income);
+        }else if (income > 147667 && income < 210371){
+           return functions.taxCal29(income);
+        }else if (income > 210371){
+           return functions.taxCal33(income);
     }
-        
-
+}
 };
 
 

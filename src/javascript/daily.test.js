@@ -1,22 +1,9 @@
 import functions from './daily.js'
-const data = {
-    staff: [
-        { fname: "Jane", lname: "Smith", balance: 10 },
-        { fname: "Liam", lname: "Henry", balance: 1000 },
-        { fname: "Emma", lname: "Jones", balance: 1330 },
-        { fname: "Olivia", lname: "Notly", balance: 310 },
-        { fname: "Noah", lname: "Ho", balance: 503 },
-        { fname: "William", lname: "Lee", balance: 520 },
-        { fname: "Benjamin", lname: "Amis", balance: 150 },
-    ],
-    company: "EvolveU",
-    city: "Calgary",
-    prov: "Alberta"
-};
-let test2 = [];
-test2.push(data.staff[0]);
-test2.push(data.staff[3]);
-test2.push(data.staff[5]);
+// Nov 8 Callback Exercise
+test("CallBack Exercise", ()=>{
+    expect(functions.callBack(people)).toBe(44);
+})
+
 
 test("More Array Oct ", () => {
     expect(functions.accumulatorBal(data.staff)).toBe(3823);
@@ -78,12 +65,7 @@ test('email builder for company', () => {
 });
 
 test('map looping test', () => {
-    const objBin = [
-        { id: 20, name: 'Piett', rank: 'Capatin' },
-        { id: 24, name: 'Veers', rank: 'General' },
-        { id: 56, name: 'Ozzel', rank: 'Admiral' },
-        { id: 88, name: 'Jerjerrod', rank: 'Commander' }
-    ];
+    const objBin = starWarsCommanders;
     const officersRank = functions.mapLoop(objBin);
     expect(officersRank[0])
         .toEqual("Capatin");
@@ -94,12 +76,8 @@ test('map looping test', () => {
 });
 
 test("reduce loop with accumlator", () => {
-    let objBin = [
-        { id: 22, name: 'Piett', rank: 'Capatin', years: 15 },
-        { id: 71, name: 'Veers', rank: 'General', years: 20 },
-        { id: 88, name: 'Ozzel', rank: 'Admiral', years: 22 },
-        { id: 15, name: 'Jerjerrod', rank: 'Commander', years: 10 }
-    ];
+    
+    const objBin = starWarsCommanders;
     const totalYears = functions.reduceLoopWithAcc(objBin);
     const mostExp = functions.reduceLoopWithGreatest(objBin);
     expect(totalYears)
@@ -109,27 +87,21 @@ test("reduce loop with accumlator", () => {
 
 });
 test("filter looper test", () => {
-    let pilots = [
-        { id: 2, name: "Wedge Antilles", faction: "Rebels", role: "Wingman" },
-        { id: 421, name: "Mualer Mithel", factions: "Empire", role: "Wingman" },
-        { id: 5, name: "Luke Skywalker", faction: "Rebels", role: "Leader" },
-        { id: 1, name: "Darth Vader", factions: "Empire", role: "Leader" },
-        { id: 5555, name: "Backstaber", faction: "Empire", role: "Wingman" },
-        { id: 3, name: "Biggs Darklighter", faction: "Rebels", role: "Wingman" }
-    ];
+    const pilots = starWarsPilots
     const rebelspilots = functions.filterLoop(pilots);
     const pilotsName = functions.forEachLoop(pilots);
     expect(rebelspilots[0])
-        .toEqual({ id: 2, name: "Wedge Antilles", faction: "Rebels", role: "Wingman" });
+    .toEqual({ id: 2, name: "Wedge Antilles", faction: "Rebels", role: "Wingman" });
     expect(rebelspilots[1])
-        .toEqual({ id: 5, name: "Luke Skywalker", faction: "Rebels", role: "Leader" });
+    .toEqual({ id: 5, name: "Luke Skywalker", faction: "Rebels", role: "Leader" });
+    
     expect(pilotsName[0])
-        .toEqual("Wedge Antilles");
+    .toEqual("Wedge Antilles");
     expect(pilotsName[2])
-        .toEqual("Luke Skywalker");
+    .toEqual("Luke Skywalker");
     expect(pilotsName[5])
-        .toEqual("Biggs Darklighter");
-
+    .toEqual("Biggs Darklighter");
+    
 });
 
 test('functions.loopStaffForEachdata.staff', () => {
@@ -151,3 +123,91 @@ test("loopStaffOF", () => {
     expect(staffEmail[3]).toBe('olivia.notly@evolveu.ca');
     expect(staffEmail[6]).toBe('benjamin.amis@evolveu.ca');
 });
+
+
+// Test Data 
+
+
+ let starWarsPilots = [
+{ id: 2, name: "Wedge Antilles", faction: "Rebels", role: "Wingman" },
+{ id: 421, name: "Mualer Mithel", factions: "Empire", role: "Wingman" },
+{ id: 5, name: "Luke Skywalker", faction: "Rebels", role: "Leader" },
+{ id: 1, name: "Darth Vader", factions: "Empire", role: "Leader" },
+{ id: 5555, name: "Backstaber", faction: "Empire", role: "Wingman" },
+{ id: 3, name: "Biggs Darklighter", faction: "Rebels", role: "Wingman" }
+ ];
+
+const starWarsCommanders = [
+    { id: 22, name: 'Piett', rank: 'Capatin', years: 15 },
+    { id: 71, name: 'Veers', rank: 'General', years: 20 },
+    { id: 88, name: 'Ozzel', rank: 'Admiral', years: 22 },
+    { id: 15, name: 'Jerjerrod', rank: 'Commander', years: 10 }
+];
+
+const people = [
+	{fname:"Alex", lname:"Smith", province:"BC", age:33},
+	{fname:"Angela", lname:"Jones", province:"AB", age:61},
+	{fname:"Anne", lname:"Bird", province:"SK", age:35},
+	{fname:"Brent", lname:"Riddle", province:"MN", age:79},
+	{fname:"Byron", lname:"Cardenas", province:"BC", age:38},
+	{fname:"Carrie", lname:"Ramirez", province:"AB", age:89},
+	{fname:"Cheryl", lname:"Glenn", province:"SK", age:70},
+	{fname:"Dima", lname:"Curry", province:"MN", age:67},
+	{fname:"Dustin", lname:"Bullock", province:"BC", age:59},
+	{fname:"Eva", lname:"Keiths", province:"AB", age:24},
+	{fname:"Faith", lname:"Liu", province:"SK", age:46},
+	{fname:"Fawad", lname:"Bowman", province:"MN", age:69},
+	{fname:"Forest", lname:"Vaughn", province:"BC", age:52},
+	{fname:"Giovanni", lname:"Browning", province:"AB", age:32},
+    {fname:"Greg", lname:"Hogan", province:"SK", age:55},
+	{fname:"Harpreet", lname:"Ramsey", province:"MN", age:18},
+	{fname:"Ian", lname:"Fitzgerald", province:"BC", age:16},
+	{fname:"James", lname:"Kramer", province:"AB", age:57},
+	{fname:"Jarvis", lname:"Ortega", province:"SK", age:69},
+	{fname:"Jawad", lname:"Huerta", province:"MN", age:35},
+	{fname:"Jinbong", lname:"Robinson", province:"BC", age:26},
+	{fname:"Jingnan", lname:"Hatfield", province:"AB", age:71},
+	{fname:"Joe", lname:"Banks", province:"SK", age:37},
+	{fname:"Kristina", lname:"Dalton", province:"MN", age:73},
+	{fname:"Latora", lname:"Matthews", province:"BC", age:25},
+	{fname:"Lauren", lname:"McClure", province:"AB", age:42},
+	{fname:"Licedt", lname:"Rasmussen", province:"SK", age:30},
+	{fname:"Linden", lname:"Pierce", province:"MN", age:68},
+	{fname:"Luis", lname:"Price", province:"BC", age:23},
+	{fname:"Marcela", lname:"Perez", province:"AB", age:20},
+	{fname:"Marilou", lname:"Graham", province:"SK", age:32},
+	{fname:"Matt", lname:"Novak", province:"MN", age:29},
+	{fname:"Monica", lname:"Giles", province:"BC", age:34},
+	{fname:"Niloufar", lname:"Carson", province:"AB", age:29},
+	{fname:"Omar", lname:"Olson", province:"SK", age:69},
+	{fname:"Roger", lname:"Woodard", province:"MN", age:84},
+	{fname:"Roman", lname:"Swanson", province:"BC", age:21},
+	{fname:"Seun", lname:"Kelly", province:"AB", age:60},
+	{fname:"Shane", lname:"Frost", province:"SK", age:87},
+	{fname:"Steven", lname:"Haynes", province:"MN", age:47},
+	{fname:"Thomas", lname:"Hart", province:"BC", age:14},
+	{fname:"Trent", lname:"Kerr", province:"AB", age:12},
+	{fname:"Darrell", lname:"Koch", province:"SK", age:10},
+	{fname:"Tylor", lname:"Torres", province:"MN", age:98}
+];
+
+
+const data = {
+    staff: [
+        { fname: "Jane", lname: "Smith", balance: 10 },
+        { fname: "Liam", lname: "Henry", balance: 1000 },
+        { fname: "Emma", lname: "Jones", balance: 1330 },
+        { fname: "Olivia", lname: "Notly", balance: 310 },
+        { fname: "Noah", lname: "Ho", balance: 503 },
+        { fname: "William", lname: "Lee", balance: 520 },
+        { fname: "Benjamin", lname: "Amis", balance: 150 },
+    ],
+    company: "EvolveU",
+    city: "Calgary",
+    prov: "Alberta"
+};
+
+const test2 = [];
+test2.push(data.staff[0]);
+test2.push(data.staff[3]);
+test2.push(data.staff[5]);

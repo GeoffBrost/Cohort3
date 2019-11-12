@@ -12,14 +12,14 @@ const functions = {
         addBefore.setAttribute("addcheck", "true");
         addBefore.id="addBefore";
         let addAfter = document.createElement("button");
-        addAfter.textContent = "Add Afer";
+        addAfter.textContent = "Add After";
         addAfter.setAttribute("addcheck", "true");
         let addDelete = document.createElement("button");
         addDelete.textContent = "Delete";
         addDelete.setAttribute("addcheck", "true");
-        // document.getElementById(parentDiv).appendChild(addBefore);
-        // document.getElementById(parentDiv).appendChild(addAfter);
-        // document.getElementById(parentDiv).appendChild(addDelete);
+        document.getElementById(parentDiv).appendChild(addBefore);
+        document.getElementById(parentDiv).appendChild(addAfter);
+        document.getElementById(parentDiv).appendChild(addDelete);
     }
 };
 

@@ -27,5 +27,5 @@ test('Tax Cal', () => {
     expect(functions.taxCal26(income[3])).toBe(23340.66);
     expect(functions.taxCal29(income[4])).toBe(37011.57);
     expect(functions.taxCal33(income[5])).toBe(78296.57);
-
+    expect(functions.taxCalmain(income[0])).toBe(.15);
 });
