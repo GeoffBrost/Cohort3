@@ -18,11 +18,15 @@
     align-items: center;
 }
 .card {
-    font:red;
+    background:blueviolet;
+    text-align: center;
+    border:dashed;
+    height: 50%;
+    width: 100%;
 }
 #idCardCan{
     border: dotted;
-    width: 100%;
+    width:50%;
     height: 200px;
 
 }

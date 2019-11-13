@@ -4,22 +4,28 @@ const functions = {
         console.log("hello world from PCS");
         return 0;
     },
-    
-     addCardButtons: (parentDiv) => {
+
+    addCardButtons: () => {
         cardCounter++;
+        let newCard = document.createElement("div");
+        newCard.className = "card";
+        let cardNumber = "card" + cardCounter;
+        newCard.id = cardNumber;
+        document.getElementById("idCardCan").appendChild(newCard);
         let addBefore = document.createElement("button");
         addBefore.textContent = "Add Before";
         addBefore.setAttribute("addcheck", "true");
-        addBefore.id="addBefore";
+        addBefore.className = "idAddBefore";
         let addAfter = document.createElement("button");
         addAfter.textContent = "Add After";
         addAfter.setAttribute("addcheck", "true");
         let addDelete = document.createElement("button");
         addDelete.textContent = "Delete";
         addDelete.setAttribute("addcheck", "true");
-        document.getElementById(parentDiv).appendChild(addBefore);
-        document.getElementById(parentDiv).appendChild(addAfter);
-        document.getElementById(parentDiv).appendChild(addDelete);
+        newCard.textContent = "Card " + cardCounter;
+        document.getElementById(cardNumber).appendChild(addBefore);
+        document.getElementById(cardNumber).appendChild(addAfter);
+        document.getElementById(cardNumber).appendChild(addDelete);
     }
 };
 
