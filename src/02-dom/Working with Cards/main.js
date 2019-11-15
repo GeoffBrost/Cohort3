@@ -5,11 +5,11 @@ idaddCards.addEventListener("click", () => {
 });
 
 idrightside.addEventListener("click", () => {
-    if(event.target.id === "idAddBefore") {
+    if (event.target.value === "idAddBefore") {
         functions.addCardBefore();
-    } else if (event.target.id === "idAddAfter"){
-        console.log("add after")
-    } else if (event.target.id === "idDelete"){
-        console.log(event.target.id);
+    } else if (event.target.id === "idAddAfter") {
+        functions.addCardAfter();
+    } else if (event.target.id === "idDelete") {
+        functions.deleteCard();
     }
 });

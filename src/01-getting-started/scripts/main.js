@@ -19,9 +19,21 @@ clear.addEventListener("click", function () {
 idcanTaxEnter.addEventListener('click', function () {
     let income = Number(canTaxInput.value);
     let taxResult = functions.taxCalmain(income);
-    canTaxpay.value = taxResult;
+    canTaxpay.value = taxResult.toFixed(2);
 });
 
+idAddArray.addEventListener('click', function () {
+    
+    let arrayInput = idArrayInput.value
+    let arraymessage = functions.addWWArray(arrayInput);
+    console.log(arraymessage);
+    idMessageArea.textContent = arraymessage;
+
+});
+
+idShowArray.addEventListener('click', function () {
+    functions.showWWArray();
+})
 const mainfunctions = {
     myCal: () => {
 

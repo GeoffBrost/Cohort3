@@ -10,9 +10,14 @@ const functions = {
     createDiv.setAttribute("class", "cardCSS");
     createDiv.id = "divID";
     return createDiv
-}
+},
+    createDiv:()=> {
+        let newDiv = document.createElement("Div");
+        newDiv.textContent ="Hello World"
+        newDiv.class = "dave"
+},
     
 };
-
+functions.createDiv();
 
 export default functions;
