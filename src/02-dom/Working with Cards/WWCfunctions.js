@@ -19,17 +19,17 @@ const functions = {
         addBefore.textContent = "Add Before";
         addBefore.setAttribute("addcheck", "true");
         addBefore.setAttribute("value", "idAddBefore");
-        // addBefore.id = "idAddBefore";
+
 
         let addAfter = document.createElement("button");
         addAfter.textContent = "Add After";
         addAfter.setAttribute("addcheck", "true");
-        addAfter.id = "idAddAfter"
+        addAfter.setAttribute("value", "idAddAfter")
 
         let addDelete = document.createElement("button");
         addDelete.textContent = "Delete";
         addDelete.setAttribute("addcheck", "true");
-        addDelete.id = "idDelete"
+        addDelete.setAttribute("value", "idDelete");
 
         newCard.textContent = cardNumber;
         document.getElementById(cardNumber).appendChild(addBefore);
@@ -42,15 +42,14 @@ const functions = {
 
         let addBefore = event.target.parentNode;
         let newCard = functions.addCard();
-        idCardCan.insertBefore(newCard,addBefore);
+        idCardCan.insertBefore(newCard, addBefore);
 
     },
 
-    addCardAfter:()=>{
+    addCardAfter: () => {
         let addAfter = event.target.parentNode.nextSibling;
-        console.log(addAfter);
         let newCard = functions.addCard();
-        idCardCan.insertBefore(newCard,addAfter);
+        idCardCan.insertBefore(newCard, addAfter);
     },
     deleteCard: () => {
         let deleteButton = event.target.parentNode;

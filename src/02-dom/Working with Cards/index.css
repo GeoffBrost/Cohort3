@@ -4,11 +4,13 @@
 }
 #idleftside {
     border: solid;
-    width :50%;    
+    width :50%;
+    height: auto;    
 }
 #idrightside {
     border: solid;
     width :50%;  
+    height: auto;
 }
 #idh1title{
     text-align :center;
@@ -18,21 +20,17 @@
     align-items: center;
 }
 .card {
-    background:rgb(20, 126, 212);
-    text-align: center;
+    float: center;
+    padding: 15px;
+    margin: 10px;
+    background:cyan;
     border:dashed;
-    height: 50%;
-    width: 100%;
+    height: 100%;
+    width: 95%;
 }
 #idCardCan{
-    border: dotted;
-    width:100%;
-    height: 200px;
+    background: rgb(20, 126, 212);
+    width: 100%;
+    height: auto;
 
-}
-#newCard{
-    border: solid;
-    border: blue;
-    width: 50%;
-    height: 50%;
 }

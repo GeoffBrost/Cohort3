@@ -7,9 +7,9 @@ idaddCards.addEventListener("click", () => {
 idrightside.addEventListener("click", () => {
     if (event.target.value === "idAddBefore") {
         functions.addCardBefore();
-    } else if (event.target.id === "idAddAfter") {
+    } else if (event.target.value === "idAddAfter") {
         functions.addCardAfter();
-    } else if (event.target.id === "idDelete") {
+    } else if (event.target.value === "idDelete") {
         functions.deleteCard();
     }
 });

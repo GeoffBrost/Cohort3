@@ -13,10 +13,11 @@ function createData() {
 
 let cardCounter = 0;
 
-function createCardDiv(divID) {
+function createCardDiv() {
     let createDiv = document.createElement("div");
+    cardCounter ++;
     createDiv.className = "card";
-    createDiv.id = divID;
+    createDiv.setAttribute("steve", "1");
     return createDiv;
 };
 
@@ -30,6 +31,6 @@ test("hello World", () => {
 });
 
 test("Create Div assgin class and ID", () => {
-    let Div = createCardDiv("card");
-    expect(Div.id).toBe("card");
+    let Div = createCardDiv();
+    console.log("new Div value ",Div.steve);
 });
