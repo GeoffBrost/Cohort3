@@ -2,24 +2,24 @@
 let cardCounter = 0;
 const functions = {
     helloWorld: () => {
-        console.log("hello world from PCS");
+        // console.log("hello world from PCS");
         return 0;
     },
 
-    addCard: () => {
+    createCard: (parentDiv) => {
         cardCounter++;
 
         let newCard = document.createElement("div");
         newCard.className = "card";
         let cardNumber = cardCounter;
         newCard.id = cardNumber;
-        document.getElementById("idCardCan").appendChild(newCard);
+        newCard.setAttribute("key", cardNumber);
+        parentDiv.appendChild(newCard);
 
         let addBefore = document.createElement("button");
         addBefore.textContent = "Add Before";
         addBefore.setAttribute("addcheck", "true");
         addBefore.setAttribute("value", "idAddBefore");
-
 
         let addAfter = document.createElement("button");
         addAfter.textContent = "Add After";
@@ -31,30 +31,31 @@ const functions = {
         addDelete.setAttribute("addcheck", "true");
         addDelete.setAttribute("value", "idDelete");
 
-        newCard.textContent = cardNumber;
-        document.getElementById(cardNumber).appendChild(addBefore);
-        document.getElementById(cardNumber).appendChild(addAfter);
-        document.getElementById(cardNumber).appendChild(addDelete);
+        newCard.textContent = `Card ${cardNumber}`;
+        newCard.appendChild(addBefore);
+        newCard.appendChild(addAfter);
+        newCard.appendChild(addDelete);
         return newCard;
     },
 
-    addCardBefore: () => {
-
-        let addBefore = event.target.parentNode;
-        let newCard = functions.addCard();
-        idCardCan.insertBefore(newCard, addBefore);
-
+    createCardBefore: (addBefore, newCard, parentDiv) => {
+        parentDiv.insertBefore(newCard, addBefore);
+        return parentDiv;
     },
 
-    addCardAfter: () => {
-        let addAfter = event.target.parentNode.nextSibling;
-        let newCard = functions.addCard();
-        idCardCan.insertBefore(newCard, addAfter);
+    createCardAfter: (addAfter, newCard, parentDiv) => {
+        parentDiv.insertBefore(newCard, addAfter);
+        return parentDiv;
     },
-    deleteCard: () => {
-        let deleteButton = event.target.parentNode;
+
+    deleteCard: (deleteButton) => {
         deleteButton.remove();
+    },
+    resetCounter:()=>{
+       cardCounter = 0;
     }
 };
+
+
 
 export default functions;

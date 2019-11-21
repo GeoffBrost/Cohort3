@@ -15,7 +15,6 @@ const functions = {
     },
     showList: () => {
         let show = document.getElementById("idmylist").childNodes
-        // want to use nodelist to get "li item"
         console.log(show);
     }
     };
