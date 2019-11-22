@@ -1,14 +1,20 @@
 // PSC
-class accounts {
-    constructor(accountName,startBalance){
+class Accounts {
+    constructor(accountName,balance){
         this.accountName = accountName;
-        this.startBalance = startBalance;
+        this.balance = balance;
     }
     getAccount(){
         return this.accountName;
     }
-    getStartBalance(){
-        return this.startBalance;
+    getBalance(){
+        return this.balance;
+    }
+    deposit(amount){
+       return this.balance = (this.balance + amount);
+    }
+    withdraw(amount){
+        return this.balance = (this.balance - amount);
     }
 };
 
@@ -16,7 +22,9 @@ const functions ={
     helloWorld:()=>{
         console.log("Hello World from PSC Accounts")
     }
-
+    
 };
 
-export {functions, accounts}; 
+
+
+export {functions, Accounts}; 
