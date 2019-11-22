@@ -1,16 +1,16 @@
-import {functions, Accounts} from "./account.js"
-const userAccount = new Accounts("Bill" , 500);
-console.table("User account" , userAccount);
+import { functions, Accounts } from "./account.js"
+const userAccount = new Accounts("Bill", 500);
+    idBalance.textContent = `$ ${userAccount.balance}`;
 
 idAccountHome.addEventListener("click", (event) => {
-    let amount = parseFloat(idAmount.value).toFixed(2);
-    if (event.target.value === "idDeposit"){
-    userAccount.deposit(amount)
-    console.log("user Account console log maybe?",userAccount);
-    console.log("amount ", amount);
-    console.log(Accounts);
+    let amount = idAmount.value;
+    amount = Number(amount);
+    if (event.target.value === "idDeposit") {
+        userAccount.deposit(amount)
+        idBalance.textContent = userAccount.balance;
     }
-    if (event.target.value === "idWithdraw"){
-        console.log("else clicking") 
-    }
+    if (event.target.value === "idWithdraw") {
+        userAccount.withdraw(amount);
+        idBalance.textContent = userAccount.balance;
+    };
 });
