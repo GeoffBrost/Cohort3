@@ -36,3 +36,7 @@ test ("return balance",()=>{
     expect(testaccount.getBalance()).toBe(2000.00);
     expect(testaccount.withdraw(2000)).toBe(0.00);
 });
+// test ("AccountController",()=>{
+//     const controller = new AccountController("Bill's" ,"maxmoney");
+//     expect(controller.getUserName()).toBe("Bill's");
+// });

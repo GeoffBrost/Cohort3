@@ -11,13 +11,21 @@ class Accounts {
         return this.balance;
     }
     deposit(amount) {
-        this.balance = (this.balance + amount);
+        return this.balance = (this.balance + amount);
     }
     withdraw(amount) {
-        this.balance = (this.balance - amount);
+        return this.balance = (this.balance - amount);
     }
 };
-
+// class AccountController {
+//     constructor(userName,accountName){
+//         this.userName = userName;
+//         this.accountName= accountName;
+//     }
+//     getUserName(){
+//         return this.userName;
+//     }
+// }
 const functions = {
     helloWorld: () => {
         console.log("Hello World from PSC Accounts")
