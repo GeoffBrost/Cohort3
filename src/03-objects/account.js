@@ -1,8 +1,28 @@
 // PSC
+class AccountController {
+    constructor(userName,accountName){
+        this.userName = userName;
+        this.accountName = accountName;
+        this.accountGroup = [];
+    }
+    getUserName(){
+        return this.userName;
+    }
+    createAccount(accountName,balance){
+        let newAccount = new Accounts (accountName, balance);
+        this.accountGroup.push(newAccount);
+        return this.accountGroup;
+    }
+    deleteAccount(accountName){
+        this.accountGroup = this.accountGroup.filter((account) => account.accountName != accountName);
+    }
+};
+
 class Accounts {
     constructor(accountName, balance) {
         this.accountName = accountName;
         this.balance = balance;
+        
     }
     getAccount() {
         return this.accountName;
@@ -17,15 +37,6 @@ class Accounts {
         return this.balance = (this.balance - amount);
     }
 };
-// class AccountController {
-//     constructor(userName,accountName){
-//         this.userName = userName;
-//         this.accountName= accountName;
-//     }
-//     getUserName(){
-//         return this.userName;
-//     }
-// }
 const functions = {
     helloWorld: () => {
         console.log("Hello World from PSC Accounts")
@@ -35,4 +46,4 @@ const functions = {
 
 
 
-export { functions, Accounts }; 
+export { functions, Accounts,AccountController }; 
