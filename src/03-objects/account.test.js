@@ -58,3 +58,20 @@ test("Account controller delete test", () => {
         { accountName: 'Checking', balance: 1000 },
         { accountName: 'Collage Fund', balance: 1 }]);
 });
+
+test ("total balance on accounts ",()=>{
+    const controller1 = new AccountController("Jimmy", "Checking");
+    controller1.createAccount("Checking", 500);
+    controller1.createAccount("Saving", 500);
+    controller1.createAccount("Collage Cash", 250);
+    expect(controller1.totalAccountBalance()).toBe(1250);
+});
+test ("higest account", ()=>{
+    const controller1 = new AccountController("Jimmy", "Collage Fund");
+    controller1.createAccount("checking", 150);
+    controller1.createAccount("Collage Fund", 10000);
+    controller1.createAccount("Saving", 10);
+    console.log(controller1.accountGroup);
+    expect(controller1.highestAccount()).toBe(10000);
+    console.log(controller1.accountGroup);
+});

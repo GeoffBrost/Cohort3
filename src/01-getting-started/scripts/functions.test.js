@@ -29,7 +29,21 @@ test('Tax Cal', () => {
     expect(functions.taxCal33(income[5])).toBe(78296.57);
     expect(functions.taxCalmain(income[0])).toBe(.15);
 });
-test("working with Arrays", ()=>{
-    let arrayInput = 9;
-    expect(functions.addWWArray(arrayInput)).toStrictEqual([9]);
+
+test ("Tax Cal Call",()=>{
+    let income = [1, 47256, 60000, 120000, 170000, 300000];
+    expect(functions.taxCalmain(income[0])).toEqual(.15);
+    expect(functions.taxCalmain(income[1])).toBe(7088.4);
+    expect(functions.taxCalmain(income[2])).toBe(9680.85);
+    expect(functions.taxCalmain(income[3])).toBe(23340.66);
+    expect(functions.taxCalmain(income[4])).toBe(37011.57);
+    expect(functions.taxCalmain(income[5])).toBe(78296.57);
+    expect(functions.taxCalmain(income[0])).toBe(.15);
+    expect(functions.taxCalmain(1)).toBe(.15);
+
 });
+
+// test("working with Arrays", ()=>{
+//     let arrayInput = 9;
+//     expect(functions.addWWArray(arrayInput)).toStrictEqual([9]);
+// });

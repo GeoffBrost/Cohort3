@@ -1,20 +1,29 @@
 // PSC
 class AccountController {
-    constructor(userName,accountName){
+    constructor(userName, accountName) {
         this.userName = userName;
         this.accountName = accountName;
         this.accountGroup = [];
     }
-    getUserName(){
+    getUserName() {
         return this.userName;
     }
-    createAccount(accountName,balance){
-        let newAccount = new Accounts (accountName, balance);
+    createAccount(accountName, balance) {
+        let newAccount = new Accounts(accountName, balance);
         this.accountGroup.push(newAccount);
         return this.accountGroup;
     }
-    deleteAccount(accountName){
+    deleteAccount(accountName) {
         this.accountGroup = this.accountGroup.filter((account) => account.accountName != accountName);
+    }
+    totalAccountBalance() {
+        return this.accountGroup.reduce((acc, accountAmount) => accountAmount.balance + acc, 0);
+    }
+    highestAccount() {
+        this.accountGroup.sort((a, b) => {
+            return b.balance - a.balance;
+        });
+        return this.accountGroup[0];
     }
 };
 
@@ -22,7 +31,7 @@ class Accounts {
     constructor(accountName, balance) {
         this.accountName = accountName;
         this.balance = balance;
-        
+
     }
     getAccount() {
         return this.accountName;
@@ -46,4 +55,4 @@ const functions = {
 
 
 
-export { functions, Accounts,AccountController }; 
+export { functions, Accounts, AccountController }; 

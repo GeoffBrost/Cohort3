@@ -64,16 +64,17 @@ const functions = {
             return functions.taxCal33(income);
         }
     },
-    addWWArray: (arrayInput) => {
-        workingWithArray.push(arrayInput);
-        console.log(workingWithArray);
-        return workingWithArray;
-    },
-    showWWArray: () => {
-        console.log(workingWithArray);
-    }
 };
+//     addWWArray: (arrayInput) => {
+//         workingWithArray.push(arrayInput);
+//         console.log(workingWithArray);
+//         return workingWithArray;
+//     },
+//     showWWArray: () => {
+//         console.log(workingWithArray);
+//     }
+// };
 
-const workingWithArray = [];
+// const workingWithArray = [];
 
 export default functions;
