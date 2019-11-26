@@ -1,13 +1,68 @@
-const functions =
-{
+// Nov 26 daily working of objects
+class AccountController {
+    constructor(userName, accountName) {
+        this.userName = userName;
+        this.accountName = accountName;
+        this.accountGroup = [];
+    }
+    getUserName() {
+        return this.userName;
+    }
+    createAccount(accountName, balance) {
+        let newAccount = new Accounts(accountName, balance);
+        this.accountGroup.push(newAccount);
+        return this.accountGroup;
+    }
+    deleteAccount(accountName) {
+        this.accountGroup = this.accountGroup.filter((account) => account.accountName != accountName);
+    }
+    totalAccountBalance() {
+        return this.accountGroup.reduce((acc, accountAmount) => accountAmount.balance + acc, 0);
+    }
+    highestAccount() {
+        this.accountGroup.sort((a, b) => {
+            return b.balance - a.balance;
+        });
+        return this.accountGroup[0];
+    }
+    lowestAccount() {
+        this.accountGroup.sort((a, b) => {
+            return a.balance - b.balance;
+        });
+        return this.accountGroup[0];
+    }
+};
+class Accounts {
+    constructor(accountName, balance) {
+        this.accountName = accountName;
+        this.balance = balance;
+
+    }
+    getAccount() {
+        return this.accountName;
+    }
+    getBalance() {
+        return this.balance;
+    }
+    deposit(amount) {
+        return this.balance = (this.balance + amount);
+    }
+    withdraw(amount) {
+        return this.balance = (this.balance - amount);
+    }
+};
+
+const functions = {
+
+
     // Nov 8 Callback Exercise 
-    callBack:(array)=> {
-        return array.length;
-    },
-    
+    // callBack:(array)=> {
+    //     return array.length;
+    // },
+
     //Nov 6 More Array Really
 
-    
+
     assertEquals: (p1, p2) => {
         if (p1 === p2) {
             return true;
@@ -137,4 +192,4 @@ const functions =
 
 };
 
-export default functions;
+export { functions, AccountController, Accounts };

@@ -71,7 +71,14 @@ test ("higest account", ()=>{
     controller1.createAccount("checking", 150);
     controller1.createAccount("Collage Fund", 10000);
     controller1.createAccount("Saving", 10);
-    console.log(controller1.accountGroup);
-    expect(controller1.highestAccount()).toBe(10000);
-    console.log(controller1.accountGroup);
+    expect(controller1.highestAccount()).toEqual({"accountName": "Collage Fund", "balance": 10000});
 });
+
+test ("Lowest Amount Account",()=>{
+    const controller1 = new AccountController("Jimmy","Collage Fund");
+    controller1.createAccount("Checking", 250);
+    controller1.createAccount("Saving", 15000);
+    controller1.createAccount("Collage Fund",100);
+    expect(controller1.lowestAccount()).toEqual({"accountName": "Collage Fund", "balance": 100});
+    console.log(controller1)
+})

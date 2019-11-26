@@ -25,6 +25,12 @@ class AccountController {
         });
         return this.accountGroup[0];
     }
+    lowestAccount(){
+        this.accountGroup.sort((a,b) =>{
+            return a.balance - b.balance;
+        });
+        return this.accountGroup[0];
+    }
 };
 
 class Accounts {
