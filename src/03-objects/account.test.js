@@ -37,7 +37,6 @@ test("return balance", () => {
 });
 test("AccountController", () => {
     const controller1 = new AccountController("Steve", "Checking");
-    expect(controller1.getUserName()).toBe("Steve");
     let controller2 = controller1.createAccount("Checking", 1000);
     expect(controller2[0].accountName).toBe("Checking");
     expect(controller2[0].balance).toBe(1000);
@@ -53,32 +52,72 @@ test("Account controller delete test", () => {
         { accountName: 'Checking', balance: 1000 },
         { accountName: 'Saving', balance: 5000 },
         { accountName: 'Collage Fund', balance: 1 }]);
-    let account4 = controller1.deleteAccount("Saving");
+    controller1.deleteAccount("Saving");
     expect(controller1.accountGroup).toEqual([
         { accountName: 'Checking', balance: 1000 },
         { accountName: 'Collage Fund', balance: 1 }]);
 });
 
-test ("total balance on accounts ",()=>{
+test("total balance on accounts ", () => {
     const controller1 = new AccountController("Jimmy", "Checking");
     controller1.createAccount("Checking", 500);
     controller1.createAccount("Saving", 500);
     controller1.createAccount("Collage Cash", 250);
     expect(controller1.totalAccountBalance()).toBe(1250);
 });
-test ("higest account", ()=>{
+test("higest account", () => {
     const controller1 = new AccountController("Jimmy", "Collage Fund");
     controller1.createAccount("checking", 150);
     controller1.createAccount("Collage Fund", 10000);
     controller1.createAccount("Saving", 10);
-    expect(controller1.highestAccount()).toEqual({"accountName": "Collage Fund", "balance": 10000});
+    expect(controller1.highestAccount()).toEqual({ "accountName": "Collage Fund", "balance": 10000 });
+    const controller2 = new AccountController("Jimmy", "Collage Fund");
+    controller2.createAccount("checking", 1500);
+    controller2.createAccount("Collage Fund", 100);
+    controller2.createAccount("Saving", 10);
+    expect(controller2.highestAccount()).toEqual({ "accountName": "checking", "balance": 1500 });
 });
 
-test ("Lowest Amount Account",()=>{
-    const controller1 = new AccountController("Jimmy","Collage Fund");
+test("Lowest Amount Account", () => {
+    const controller1 = new AccountController("Jimmy", "Collage Fund");
     controller1.createAccount("Checking", 250);
     controller1.createAccount("Saving", 15000);
-    controller1.createAccount("Collage Fund",100);
-    expect(controller1.lowestAccount()).toEqual({"accountName": "Collage Fund", "balance": 100});
-    console.log(controller1)
-})
+    controller1.createAccount("Collage Fund", 100);
+    expect(controller1.lowestAccount()).toEqual({ "accountName": "Collage Fund", "balance": 100 });
+    const controller2 = new AccountController("Jimmy", "Collage Fund");
+    controller2.createAccount("Checking", 11250);
+    controller2.createAccount("Saving", 100);
+    controller2.createAccount("Collage Fund", 2500);
+    expect(controller2.lowestAccount()).toEqual({ "accountName": "Saving", "balance": 100 });
+
+});
+function createBigDiv() {
+    let createDiv = document.createElement("div");
+    createDiv.className = "BigDiv";
+    createDiv.setAttribute("bigDiv", true);
+    return createDiv;
+};
+test("Create cards", () => {
+    functions.resetCounter();
+    let div = createBigDiv();
+    let card = functions.createCard(div);
+
+    expect(Number(card.id)).toBe(1);
+
+    card = functions.createCard(div);
+    expect(Number(card.id)).toBe(2);
+
+    card = functions.createCard(div);
+    expect(Number(card.id)).toBe(3);
+
+    expect(Number(div.childNodes[0].id)).toBe(1);
+
+
+});
+// test ("select Account",()=>{
+//     const controller1 = new AccountController("Jimmy", "Collage Fund");
+//     controller1.createAccount("Checking", 250);
+//     controller1.createAccount("Saving", 15000);
+//     controller1.createAccount("Collage Fund", 100);
+//     expect(functions.selectAccount(controller1.accountGroup,"Saving")).toBe(2);
+// })

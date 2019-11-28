@@ -1,8 +1,7 @@
 // PSC
+let cardCounter = 0;
 class AccountController {
-    constructor(userName, accountName) {
-        this.userName = userName;
-        this.accountName = accountName;
+    constructor() {
         this.accountGroup = [];
     }
     getUserName() {
@@ -55,8 +54,40 @@ class Accounts {
 const functions = {
     helloWorld: () => {
         console.log("Hello World from PSC Accounts")
-    }
+    },
+    
+    createCard: (parentDiv,accountName,) => {
+        cardCounter++;
 
+        let newCard = document.createElement("div");
+        newCard.className = "card";
+        let cardNumber = cardCounter;
+        newCard.id = cardNumber;
+        newCard.setAttribute("key", accountName);
+        newCard.setAttribute("poop", cardNumber);
+        parentDiv.appendChild(newCard);
+
+        let select = document.createElement("button");
+        select.textContent = "Select";
+        select.setAttribute("addcheck", "true");
+        select.setAttribute("value", "idSelect");
+
+        let closeAccount = document.createElement("button");
+        closeAccount.textContent = "Close Account";
+        closeAccount.setAttribute("addcheck", "true");
+        closeAccount.setAttribute("value", "idCloseAccount");
+
+        newCard.textContent = `${accountName}`;
+        newCard.appendChild(select);
+        newCard.appendChild(closeAccount);
+        return newCard;
+    },
+    resetCounter:()=>{
+        cardCounter = 0;
+     },
+//     selectAccount:(accountGroup,accountName)=>{
+//        return accountGroup.findIndex(accountName);
+//     }
 };
 
 
