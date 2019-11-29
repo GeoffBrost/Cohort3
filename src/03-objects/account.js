@@ -1,8 +1,10 @@
 // PSC
-let cardCounter = 0;
+
+
 class AccountController {
     constructor() {
         this.accountGroup = [];
+    
     }
     getUserName() {
         return this.userName;
@@ -30,12 +32,17 @@ class AccountController {
         });
         return this.accountGroup[0];
     }
+    selectAccount(accountName){
+    return this.accountGroup.filter((account) => account.accountName === accountName)[0];
+
+    }
 };
 
 class Accounts {
-    constructor(accountName, balance) {
+    constructor(accountName, balance, key) {
         this.accountName = accountName;
         this.balance = balance;
+        this.key = key;
 
     }
     getAccount() {
@@ -51,45 +58,6 @@ class Accounts {
         return this.balance = (this.balance - amount);
     }
 };
-const functions = {
-    helloWorld: () => {
-        console.log("Hello World from PSC Accounts")
-    },
-    
-    createCard: (parentDiv,accountName,) => {
-        cardCounter++;
-
-        let newCard = document.createElement("div");
-        newCard.className = "card";
-        let cardNumber = cardCounter;
-        newCard.id = cardNumber;
-        newCard.setAttribute("key", accountName);
-        newCard.setAttribute("poop", cardNumber);
-        parentDiv.appendChild(newCard);
-
-        let select = document.createElement("button");
-        select.textContent = "Select";
-        select.setAttribute("addcheck", "true");
-        select.setAttribute("value", "idSelect");
-
-        let closeAccount = document.createElement("button");
-        closeAccount.textContent = "Close Account";
-        closeAccount.setAttribute("addcheck", "true");
-        closeAccount.setAttribute("value", "idCloseAccount");
-
-        newCard.textContent = `${accountName}`;
-        newCard.appendChild(select);
-        newCard.appendChild(closeAccount);
-        return newCard;
-    },
-    resetCounter:()=>{
-        cardCounter = 0;
-     },
-//     selectAccount:(accountGroup,accountName)=>{
-//        return accountGroup.findIndex(accountName);
-//     }
-};
 
 
-
-export { functions, Accounts, AccountController }; 
+export {Accounts, AccountController }; 
