@@ -12,21 +12,25 @@
 <body id="idAccountHome">
     <div id="maindiv">
         <h1>Accounts</h1>
-        <h2 class="idTotalBalance">Total Balance: <div class="idTotalBalance">
+        <h2 id="idTotalBalance">Total Balance:
+            <div id="idTotalBalance">
         </h2>
         <button id="idCreateAccount" value="idCreateAccount">New Account</button>
         <button id="idHighestBalance" value="idHighestBalance">Highest Balance</button>
         <Button id="idLowestBalance" value="idLowestBalance">Lowest Balance</Button><br>
         <div class="inputs">
             Account Name: <input id="idCreateAccountInput">
-            Starting Balance: <input id="idStartingBalance">
+            Starting Balance: <input id="idStartingBalance" type="Number">
             <button id="open" value="idOpenNewAccount">Open Account</button>
         </div>
     </div>
     <div id="idLeftSide">
-        <h2>Account Name<div id="idAccountName"></div>
-            <h2>Currnet Balance: <div id="idBalance">
+        <h2>Account Name
+            <div id="idAccountName"></div>
+            <h2>Current Balance:
+                <div id="idBalance">
                 </div>
+                <div id="idaccountKey"></div>
                 <input id="idAmount">
                 <button id="idDeposit" value="idDeposit">Deposit</button>
                 <button id="idWithdraw" value="idWithdraw">Withdraw</button>
@@ -35,7 +39,7 @@
         <h1>Accounts List</h1>
     </div>
     </div>
-    <script type="module" src="index.js"></script>
+    <script type="module" src="./scripts/index.js"></script>
 
 </body>
 

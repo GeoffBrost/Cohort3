@@ -1,11 +1,11 @@
-import {Accounts, AccountController } from "./account.js"
-import {functions} from "./accounts.functions.js"
+import { Accounts, AccountController } from "./account.js"
+import { functions } from "./accounts.functions.js"
 
 test("hello world test", () => {
     functions.helloWorld();
 });
 
-test("accounts Object", () => {
+test("test Accounts constructerr", () => {
     const testaccount = new Accounts("Super Super Cash", 5);
     expect(testaccount.getAccount()).toBe("Super Super Cash");
     expect(testaccount.getBalance()).toStrictEqual(5);
@@ -35,9 +35,10 @@ test("return balance", () => {
     expect(testaccount.deposit(1000)).toBe(2000.00);
     expect(testaccount.getBalance()).toBe(2000);
     expect(testaccount.withdraw(2000)).toBe(0.00);
+    expect(testaccount.getBalance()).toBe(0);
 });
-test("AccountController", () => {
-    const controller1 = new AccountController("Steve", "Checking");
+test("AccountController Create account", () => {
+    const controller1 = new AccountController();
     let controller2 = controller1.createAccount("Checking", 1000);
     expect(controller2[0].accountName).toBe("Checking");
     expect(controller2[0].balance).toBe(1000);
@@ -45,51 +46,51 @@ test("AccountController", () => {
 });
 
 test("Account controller delete test", () => {
-    const controller1 = new AccountController("Jimmy", "Saving");
+    const controller1 = new AccountController();
     controller1.createAccount("Checking", 1000);
     controller1.createAccount("Saving", 5000);
     controller1.createAccount("Collage Fund", 1);
     expect(controller1.accountGroup).toEqual([
-        { accountName: 'Checking', balance: 1000 },
-        { accountName: 'Saving', balance: 5000 },
-        { accountName: 'Collage Fund', balance: 1 }]);
+        { accountName: 'Checking', balance: 1000, key: 0 },
+        { accountName: 'Saving', balance: 5000, key: 1 },
+        { accountName: 'Collage Fund', balance: 1, key: 2 }]);
     controller1.deleteAccount("Saving");
     expect(controller1.accountGroup).toEqual([
-        { accountName: 'Checking', balance: 1000 },
-        { accountName: 'Collage Fund', balance: 1 }]);
+        { accountName: 'Checking', balance: 1000, key: 0 },
+        { accountName: 'Collage Fund', balance: 1, key: 2 }]);
 });
 
 test("total balance on accounts ", () => {
-    const controller1 = new AccountController("Jimmy", "Checking");
+    const controller1 = new AccountController();
     controller1.createAccount("Checking", 500);
     controller1.createAccount("Saving", 500);
     controller1.createAccount("Collage Cash", 250);
     expect(controller1.totalAccountBalance()).toBe(1250);
 });
 test("higest account", () => {
-    const controller1 = new AccountController("Jimmy", "Collage Fund");
+    const controller1 = new AccountController();
     controller1.createAccount("checking", 150);
     controller1.createAccount("Collage Fund", 10000);
     controller1.createAccount("Saving", 10);
-    expect(controller1.highestAccount()).toEqual({ "accountName": "Collage Fund", "balance": 10000 });
-    const controller2 = new AccountController("Jimmy", "Collage Fund");
+    expect(controller1.highestAccount()).toEqual(10000);
+    const controller2 = new AccountController();
     controller2.createAccount("checking", 1500);
     controller2.createAccount("Collage Fund", 100);
     controller2.createAccount("Saving", 10);
-    expect(controller2.highestAccount()).toEqual({ "accountName": "checking", "balance": 1500 });
+    expect(controller2.highestAccount()).toEqual(1500);
 });
 
 test("Lowest Amount Account", () => {
-    const controller1 = new AccountController("Jimmy", "Collage Fund");
+    const controller1 = new AccountController();
     controller1.createAccount("Checking", 250);
     controller1.createAccount("Saving", 15000);
     controller1.createAccount("Collage Fund", 100);
-    expect(controller1.lowestAccount()).toEqual({ "accountName": "Collage Fund", "balance": 100 });
-    const controller2 = new AccountController("Jimmy", "Collage Fund");
+    expect(controller1.lowestAccount()).toEqual(100);
+    const controller2 = new AccountController();
     controller2.createAccount("Checking", 11250);
     controller2.createAccount("Saving", 100);
     controller2.createAccount("Collage Fund", 2500);
-    expect(controller2.lowestAccount()).toEqual({ "accountName": "Saving", "balance": 100 });
+    expect(controller2.lowestAccount()).toEqual(100);
 
 });
 function createBigDiv() {
@@ -98,30 +99,38 @@ function createBigDiv() {
     createDiv.setAttribute("bigDiv", true);
     return createDiv;
 };
-test("Create cards", () => {
-    let cardCounter= functions.resetCounter();
-    let div = createBigDiv();
 
-    let card = functions.createCard(div,"steve",cardCounter);
-
-    expect(Number(card.id)).toBe(1);
-
-    // card = functions.createCard(div);
-    // expect(Number(card.id)).toBe(2);
-
-    // card = functions.createCard(div);
-    // expect(Number(card.id)).toBe(3);
-
-    // expect(Number(div.childNodes[0].id)).toBe(1);
-
-
-// });
-// test ("select Account",()=>{
-//     const controller1 = new AccountController("Jimmy", "Collage Fund");
-//     let accountName = Accounts.getAccount
-//     controller1.createAccount("Checking", 250);
-//     controller1.createAccount("Saving", 15000);
-//     controller1.createAccount("Collage Fund", 100);
-//     expect(functions.selectAccount(controller1.accountGroup,accountName)).toBe(2);
-
+test("select Account", () => {
+    const controller1 = new AccountController();
+    controller1.createAccount("Checking", 250);
+    controller1.createAccount("Saving", 15000);
+    controller1.createAccount("Collage Fund", 100);
+   console.log(controller1);
+  expect(controller1.selectAccount(2).accountName).toBe("Collage Fund");
+  expect(controller1.selectAccount(0).accountName).toBe("Checking");
 });
+
+test("Controller Account deposit", () =>{
+    const controller1 = new AccountController();
+    controller1.createAccount("a",16);
+    controller1.createAccount("b",10);
+    controller1.createAccount("c",16);
+    controller1.createAccount("d",120);
+    console.log(controller1.accountGroup[1].balance,controller1.accountGroup[1].accountName);
+    controller1.deposit(1,5)
+    // console.log(controller1);
+    console.log(controller1.accountGroup[1].balance);
+
+})
+test("Controller Account withdraw", () =>{
+    const controller1 = new AccountController();
+    controller1.createAccount("a",16);
+    controller1.createAccount("b",10);
+    controller1.createAccount("c",16);
+    controller1.createAccount("d",120);
+    console.log(controller1.accountGroup[1].balance,controller1.accountGroup[1].accountName);
+    controller1.withdraw(1,5)
+    // console.log(controller1);
+    console.log(controller1.accountGroup[1].balance);
+
+})
