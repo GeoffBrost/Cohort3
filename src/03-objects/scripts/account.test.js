@@ -5,7 +5,7 @@ test("hello world test", () => {
     functions.helloWorld();
 });
 
-test("test Accounts constructerr", () => {
+test("test Accounts constructer", () => {
     const testaccount = new Accounts("Super Super Cash", 5);
     expect(testaccount.getAccount()).toBe("Super Super Cash");
     expect(testaccount.getBalance()).toStrictEqual(5);
