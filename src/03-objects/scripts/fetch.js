@@ -1,17 +1,4 @@
 const functions = {
-    getFirstName: (data) => {
-        return data[0].name
-    },
-    getAllFirstNames: (array) => {
-        let firstName = array.map(person => person.name);
-        return firstName;
-    },
-};
-const response = await fetch('http://example.com/movies.json');
-const myJson = await response.json();
-console.log(JSON.stringify(myJson));
-
-const functions = {
 
     url: 'https://uinames.com/api/?amount=10',
 
@@ -63,25 +50,6 @@ const functions = {
         console.log(functions.getFirstName(data));
         console.log(functions.getAllFirstNames(data));
     },
-
-    async function postData(url = 'https://uinames.com/api/?amount=10', data = {}) {
-        // Default options are marked with *
-        const response = await fetch(url, {
-            method: 'POST',     // *GET, POST, PUT, DELETE, etc.
-            mode: 'cors',       // no-cors, *cors, same-origin
-            cache: 'no-cache',  // *default, no-cache, reload, force-cache, only-if-cached
-            credentials: 'same-origin', // include, *same-origin, omit
-            headers: {
-                'Content-Type': 'application/json'
-                // 'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            redirect: 'follow',         // manual, *follow, error
-            referrer: 'no-referrer',    // no-referrer, *client
-            body: JSON.stringify(data)  // body data type must match "Content-Type" header
-        });
-return await response.json();   // parses JSON response into native JavaScript objects
-    }
-    
 
 }
 

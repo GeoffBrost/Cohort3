@@ -18,5 +18,22 @@ test ("Get First Name", ()=>{
 })
 
 test ("Get all Names",()=>{
-    console.log(functions.getAllFirstNames(data));
-})
+    expect(functions.getAllFirstNames(data)).toEqual(['Maricica',
+    'Nishant',
+    'Nicuță',
+    'Barbara',
+    'Stanca',
+    'Bella',
+    'Fabian',
+    'Славчо',
+    'Upendra',
+    'Dumitra'])
+});
+
+test ("show Delay Problem", ()=>{
+    functions.showDelayProblem();
+});
+
+test ("get users", ()=>{
+    functions.getUsers();
+});
