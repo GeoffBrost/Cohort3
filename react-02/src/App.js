@@ -1,9 +1,10 @@
 import React from 'react';
 import './App.css';
-import {Home, Select,Robo} from './components/nav/menu'
+import {Caslte, Select,Robo} from './components/nav/menu'
 import Clock from './components/Clock.js'
 import Game from './components/tic-tac-toe/index.js'
 import RoboApp from './components/robofriends/App.js'
+import Home from './home/App'
 
 class App extends React.Component{
   constructor(props){
@@ -14,7 +15,7 @@ class App extends React.Component{
 }
 
 homeClick =() => {
-  this.setState({selected: <Clock />})
+  this.setState({selected: <Home />})
 }
 ticTacToeClick =() => {
   this.setState({selected: <Game />})
@@ -28,7 +29,7 @@ render(){
       <header className="App-header">
       <div className="head">
       <Clock />
-      <Home homeClick={this.homeClick} />
+      <Caslte homeClick={this.homeClick} />
       <Select ticTacToeClick={this.ticTacToeClick} />
       <Robo rocketClick={this.rocketClick} />
     </div>

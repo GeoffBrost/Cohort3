@@ -6,7 +6,7 @@ import {ReactComponent as Panick} from '../../images/panick.svg'
 import {ReactComponent as Rocket} from '../../images/rocket.svg'
 // import { Neutral} from '../ReactIcon.js'
 
-export const Home = (props) => {
+export const Caslte = (props) => {
     return (
         <Castle className={"icon"} alt="home" onClick={props.homeClick} />
     )

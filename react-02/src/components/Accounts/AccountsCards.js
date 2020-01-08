@@ -1,4 +1,3 @@
-
 const functions = {
     helloWorld: () => {
         console.log("Hello World from PSC Accounts");
