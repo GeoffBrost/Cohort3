@@ -124,4 +124,5 @@ function Square(props) {
     }
     return null;
   }
-  
+
+  export default Game;
