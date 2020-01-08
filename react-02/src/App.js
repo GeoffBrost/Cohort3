@@ -2,9 +2,9 @@ import React from 'react';
 import './App.css';
 import {Caslte, Select,Robo} from './components/nav/menu'
 import Clock from './components/Clock.js'
-import Game from './components/tic-tac-toe/index.js'
-import RoboApp from './components/robofriends/App.js'
-import Home from './home/App'
+import Game from './components/tic-tac-toe/ticTacToe'
+import RoboApp from './components/robofriends/RoboApp.js'
+import Home from './components/home/Home.js'
 
 class App extends React.Component{
   constructor(props){
@@ -25,19 +25,17 @@ rocketClick = () => {
 }
 render(){
   return(
-    <div className="Home">
-      <header className="App-header">
-      <div className="head">
+  <div>
+      <header className="main-header">
       <Clock />
       <Caslte homeClick={this.homeClick} />
       <Select ticTacToeClick={this.ticTacToeClick} />
       <Robo rocketClick={this.rocketClick} />
-    </div>
     </header>
       <div>
         {this.state.selected}
-      </div>
     </div>
+  </div>  
   );
 }
 }
