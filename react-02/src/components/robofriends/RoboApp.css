@@ -7,6 +7,10 @@
     src: local('SEGA LOGO FONT'), url('SEGA.woff') format('woff');
     }
 
-h1 {
+.RoboFriend {
     font-family: 'SEGA LOGO FONT';
+}
+.tc{
+    text-align: center;
+    background-color: teal;
 }

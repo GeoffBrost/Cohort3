@@ -2,7 +2,7 @@ import React from 'react';
 import './MainNav.css'
 import { ReactComponent as Castle } from '../../images/castle.svg'
 import {ReactComponent as Panick} from '../../images/panick.svg'
-// import {ReactComponent as Money} from '../../images/money.svg'
+import {ReactComponent as Money} from '../../images/money.svg'
 import {ReactComponent as Rocket} from '../../images/rocket.svg'
 // import { Neutral} from '../ReactIcon.js'
 
@@ -19,5 +19,10 @@ export const Select = (props) => {
 export const Robo = (props) => {
     return(
         <Rocket className={"icon"} alt="Rocket" onClick={props.rocketClick} />
+    )
+}
+export const Account = (props) => {
+    return(
+        <Money className={"icon"} alt="Account" onClick={props.accountClick} />
     )
 }

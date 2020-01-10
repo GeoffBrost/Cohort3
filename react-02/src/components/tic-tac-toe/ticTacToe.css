@@ -8,6 +8,7 @@ body {
   }
   
   .board-row:after {
+    text-align: center;
     clear: both;
     content: "";
     display: table;
@@ -18,7 +19,7 @@ body {
   }
   
   .square {
-    background: #fff;
+    background: white;
     border: 1px solid #999;
     float: left;
     font-size: 24px;
@@ -37,11 +38,12 @@ body {
   }
   
   .kbd-navigation .square:focus {
-    background: #ddd;
+    background: rgb(201, 31, 31);
   }
   
   .game {
-    display: flex;
+    text-align: right;
+    display:flex;
     flex-direction: row;
   }
   
