@@ -1,14 +1,15 @@
 import React from 'react';
 import './MainNav.css'
-import { ReactComponent as Castle } from '../../images/castle.svg'
+// import { ReactComponent as Castle } from '../../images/castle.svg'
 import {ReactComponent as Panick} from '../../images/panick.svg'
 import {ReactComponent as Money} from '../../images/money.svg'
 import {ReactComponent as Rocket} from '../../images/rocket.svg'
+import {ReactComponent as HomeMe} from '../../images/home.svg'
 // import { Neutral} from '../ReactIcon.js'
 
 export const Caslte = (props) => {
     return (
-        <Castle className={"icon"} alt="home" onClick={props.homeClick} />
+        <HomeMe className={"icon"} alt="home" onClick={props.homeClick} />
     )
 }
 export const Select = (props) => {

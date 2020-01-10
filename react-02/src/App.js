@@ -5,8 +5,8 @@ import Clock from './components/Clock.js'
 import Game from './components/tic-tac-toe/ticTacToe'
 import RoboApp from './components/robofriends/RoboApp.js'
 import Home from './components/home/Home.js'
-import AccountHeader from './components/Accounts/HeaderAccount'
-import AccountCurrent from './components/Accounts/CurrentAccount'
+import AccountDisplay from './components/Accounts/AccountDisplay'
+
 class App extends React.Component{
   constructor(props){
   super()
@@ -25,7 +25,7 @@ rocketClick = () => {
   this.setState({selected: <RoboApp />})
 }
 accountClick = () => {
-  this.setState({selected:  <AccountCurrent />})
+  this.setState({selected: <AccountDisplay />})
 }
 
 render(){
