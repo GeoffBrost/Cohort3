@@ -1,31 +1,42 @@
-const functions = {
-    helloWorld: () => {
-        console.log("Hello World from PSC Accounts");
-    },
+import React from 'react'
 
-    createCard: (parentDiv, accountName, cardCounter) => {
-        let newCard = document.createElement("div");
-        newCard.className = "card";
-        let cardNumber = cardCounter;
-        newCard.id = cardNumber;
-        newCard.setAttribute("key", cardNumber);
-        parentDiv.appendChild(newCard);
+// const functions = {
+//     helloWorld: () => {
+//         console.log("Hello World from PSC Accounts");
+//     },
 
-        let select = document.createElement("button");
-        select.textContent = "Select";
-        select.setAttribute("addcheck", "true");
-        select.setAttribute("value", "idSelect");
+    // createCard: (parentDiv, accountName, cardCounter) => {
+    //     let newCard = document.createElement("div");
+    //     newCard.className = "card";
+    //     let cardNumber = cardCounter;
+    //     newCard.id = cardNumber;
+    //     newCard.setAttribute("key", cardNumber);
+    //     parentDiv.appendChild(newCard);
 
-        let closeAccount = document.createElement("button");
-        closeAccount.textContent = "Close Account";
-        closeAccount.setAttribute("addcheck", "true");
-        closeAccount.setAttribute("value", "idCloseAccount");
+    //     let select = document.createElement("button");
+    //     select.textContent = "Select";
+    //     select.setAttribute("addcheck", "true");
+    //     select.setAttribute("value", "idSelect");
 
-        newCard.textContent = `${accountName}`;
-        newCard.appendChild(select);
-        newCard.appendChild(closeAccount);
-        return newCard;
-    },
-};
+    //     let closeAccount = document.createElement("button");
+    //     closeAccount.textContent = "Close Account";
+    //     closeAccount.setAttribute("addcheck", "true");
+    //     closeAccount.setAttribute("value", "idCloseAccount");
 
-export { functions }; 
+    //     newCard.textContent = `${accountName}`;
+    //     newCard.appendChild(select);
+    //     newCard.appendChild(closeAccount);
+    //     return newCard;
+    // },
+// },
+
+function CreateCard(props) {
+    return (
+    <div>
+        <button className="accountList">Select</button>
+        <button className="accountList">Close Account</button>
+    </div>
+    )
+}
+
+export default CreateCard ; 

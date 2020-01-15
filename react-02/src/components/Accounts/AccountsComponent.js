@@ -17,3 +17,5 @@ class Accounts {
         return this.balance = this.balance - amount;
     }
 };
+
+export default Accounts;

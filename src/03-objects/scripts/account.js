@@ -25,9 +25,6 @@ class AccountController {
         this.accountGroup = [];
         this.counterID =0;
     }
-    // getUserName() {
-    //     return this.userName;
-    // }
     createAccount(accountName, balance) {
         const newAccount = new Accounts(accountName, balance,this.counterID);
         this.accountGroup.push(newAccount);

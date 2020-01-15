@@ -1,3 +1,5 @@
+import Accounts from './AccountsComponent'
+
 class AccountController {
     constructor() {
         this.accountGroup = [];
@@ -10,7 +12,7 @@ class AccountController {
         return this.accountGroup;
     }
     deleteAccount(accountName) {
-        this.accountGroup = this.accountGroup.filter((account) => account.accountName != accountName);
+        this.accountGroup = this.accountGroup.filter((account) => account.accountName !== accountName);
     }
     totalAccountBalance() {
         return this.accountGroup.reduce((acc, accountAmount) => accountAmount.balance + acc, 0);
@@ -47,3 +49,5 @@ class AccountController {
     return this.accountGroup.filter((account) => account.key === key)[0];
     }
 };
+
+export default AccountController;

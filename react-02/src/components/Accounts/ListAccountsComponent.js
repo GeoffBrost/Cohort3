@@ -1,12 +1,14 @@
 import React from 'react'
+import CreateCard from "./AccountsCards"
 
 class AccountList extends React.Component{
-    render(){
+render(){
+    console.log(this.props);
         return(
-    <div id="idRigthSide">
-        <h1> Accounts List </h1>
+    <div>
+        <CreateCard />
     </div>
-        )
+    )
 }
 }
 
