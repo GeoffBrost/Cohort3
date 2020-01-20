@@ -5,7 +5,7 @@ import Clock from './components/Clock.js'
 import Game from './components/tic-tac-toe/ticTacToe'
 import RoboApp from './components/robofriends/RoboApp.js'
 import Home from './components/home/Home.js'
-import {AccountDisplay} from './components/Accounts/AccountComponent'
+import {AccountDisplay} from './components/Accounts/AccountComp'
 
 class App extends React.Component{
   constructor(props){

@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+// import ReactDOM from 'react-dom';
 import './ticTacToe.css';
 function Square(props) {
     return (
@@ -100,10 +100,10 @@ function Square(props) {
   
   // ========================================
   
-  ReactDOM.render(
-    <Game />,
-    document.getElementById('root')
-  );
+  // ReactDOM.render(
+  //   <Game />,
+  //   document.getElementById('root')
+  // );
   
   function calculateWinner(squares) {
     const lines = [

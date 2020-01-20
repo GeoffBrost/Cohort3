@@ -1,52 +1,55 @@
-import Accounts from './AccountsComponent'
+import Account from './Account'
 
 class AccountController {
     constructor() {
-        this.accountGroup = [];
-        this.counterID =0;
+        this.accountList = [];
+        this.counterID = 0;
     }
     createAccount(accountName, balance) {
-        const newAccount = new Accounts(accountName, balance,this.counterID);
-        this.accountGroup.push(newAccount);
+        const newAccount = new Account(accountName, balance, this.counterID);
+        this.accountList.push(newAccount);
         this.counterID++
-        return this.accountGroup;
+        return this.accountList;
     }
     deleteAccount(accountName) {
-        this.accountGroup = this.accountGroup.filter((account) => account.accountName !== accountName);
+        this.accountList = this.accountList.filter((account) => account.accountName !== accountName);
     }
     totalAccountBalance() {
-        return this.accountGroup.reduce((acc, accountAmount) => accountAmount.balance + acc, 0);
+        return this.accountList.reduce((acc, accountAmount) => accountAmount.balance + acc, 0);
     }
     deposit(id, amount) {
-        this.accountGroup.forEach(item =>{
-            if(item.key ===id){
+        this.accountList.forEach(item => {
+            if (item.key === id) {
                 item.deposit(amount);
                 return
             }
         })
     }
     withdraw(id, amount) {
-        this.accountGroup.forEach(item =>{
-            if(item.key ===id){
+        this.accountList.forEach(item => {
+            if (item.key === id) {
                 item.withdraw(amount);
                 return
             }
         })
     }
     highestAccount() {
-        this.accountGroup.sort((a, b) => {
+        this.accountList.sort((a, b) => {
             return b.balance - a.balance;
         });
-        return this.accountGroup[0].balance;
+        return this.accountList[0].balance;
     }
-    lowestAccount(){
-        this.accountGroup.sort((a,b) =>{
+    lowestAccount() {
+        this.accountList.sort((a, b) => {
             return a.balance - b.balance;
         });
-        return this.accountGroup[0].balance;
+        return this.accountList[0].balance;
     }
-    selectAccount(key){
-    return this.accountGroup.filter((account) => account.key === key)[0];
+    selectAccount(key) {
+        return this.accountList.filter((account) => account.key === key)[0];
+    }
+    getAccounts(){
+        return this.accountList;
     }
 };
 
