@@ -1,11 +1,7 @@
 import React from 'react';
 import AccountController from "./AccountController.js"
 import Account from "./Account.js"
-import functions from "./accounts.functions.js"
-
-test("hello world test", () => {
-    functions.helloWorld();
-});
+// import functions from "./accounts.functions"
 
 test("test Accounts constructer", () => {
     const testaccount = new Account("Super Super Cash", 5);
@@ -55,12 +51,12 @@ test("Account controller delete test", () => {
     controller1.createAccount("Checking", 1000);
     controller1.createAccount("Saving", 5000);
     controller1.createAccount("Collage Fund", 1);
-    expect(controller1.accountGroup).toEqual([
+    expect(controller1.accountList).toEqual([
         { accountName: 'Checking', balance: 1000, key: 0 },
         { accountName: 'Saving', balance: 5000, key: 1 },
         { accountName: 'Collage Fund', balance: 1, key: 2 }]);
     controller1.deleteAccount("Saving");
-    expect(controller1.accountGroup).toEqual([
+    expect(controller1.accountList).toEqual([
         { accountName: 'Checking', balance: 1000, key: 0 },
         { accountName: 'Collage Fund', balance: 1, key: 2 }]);
 });
@@ -121,10 +117,10 @@ test("Controller Account deposit", () => {
     controller1.createAccount("b", 10);
     controller1.createAccount("c", 16);
     controller1.createAccount("d", 120);
-    console.log(controller1.accountGroup[1].balance, controller1.accountGroup[1].accountName);
+    console.log(controller1.accountList[1].balance, controller1.accountList[1].accountName);
     controller1.deposit(1, 5)
     // console.log(controller1);
-    console.log(controller1.accountGroup[1].balance);
+    console.log(controller1.accountList[1].balance);
 
 })
 test("Controller Account withdraw", () => {
@@ -133,9 +129,9 @@ test("Controller Account withdraw", () => {
     controller1.createAccount("b", 10);
     controller1.createAccount("c", 16);
     controller1.createAccount("d", 120);
-    console.log(controller1.accountGroup[1].balance, controller1.accountGroup[1].accountName);
+    console.log(controller1.accountList[1].balance, controller1.accountList[1].accountName);
     controller1.withdraw(1, 5)
     // console.log(controller1);
-    console.log(controller1.accountGroup[1].balance);
+    console.log(controller1.accountList[1].balance);
 
 })
