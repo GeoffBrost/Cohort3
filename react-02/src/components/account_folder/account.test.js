@@ -1,6 +1,6 @@
 import React from 'react';
-import AccountController from "./AccountController.js"
-import Account from "./Account.js"
+import AccountController from "./AccountController.js.js"
+import Account from "./Account.js.js"
 // import functions from "./accounts.functions"
 
 test("test Accounts constructer", () => {
