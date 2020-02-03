@@ -11,7 +11,7 @@ class MainAccountComponent extends React.Component {
                     <button id="idLowestBalance" value="idLowestBalance">Lowest Balance</button>
                     <p>Account Name:</p> <input type="text" name="accountName" />
                     <p>Starting Balance:</p> <input id="idStartingBalance" type="Number"/><br/>
-                    <button id="open" value="idOpenNewAccount">Open Account</button>    
+                    <button id="open" value="idOpenNewAccount">Open Account</button>      
                 </div>
         )
     }
