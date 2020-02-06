@@ -13,6 +13,7 @@ export class TodoItem extends Component {
     }
     render() {
         const { id, title } = this.props.todo;
+        console.log(this.props.delTodo)
         return (
             <div style={this.getStyle()}>
                 <p>
