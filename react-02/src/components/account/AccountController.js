@@ -11,8 +11,8 @@ class AccountController {
         this.counterID++
         return this.accountList;
     }
-    deleteAccount(accountName) {
-        this.accountList = this.accountList.filter((account) => account.accountName !== accountName);
+    deleteAccount(key) {
+        this.accountList = this.accountList.filter((account) => account.key !== key);
     }
     totalAccountBalance() {
         return this.accountList.reduce((acc, accountAmount) => accountAmount.balance + acc, 0);
