@@ -12,6 +12,10 @@ class AccountCurrent extends React.Component {
         this.props.deposit(this.props.account.key, this.state.amount)
         this.setState({amount:""})
     }
+    withdraw = (e)=> {
+        this.props.withdraw(this.props.account.key, this.state.amount)
+        this.setState({amount:""})
+    }
 
     render() {
         return (
@@ -26,7 +30,7 @@ class AccountCurrent extends React.Component {
                 >
                     </input>
                 <button onClick={this.deposit}> Deposit</button>
-                <button>Withdraw</button>
+                <button onClick={this.withdraw}>Withdraw</button>
             </div>
         )
     }

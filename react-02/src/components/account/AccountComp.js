@@ -24,7 +24,8 @@ class AccountComp extends React.Component {
     deleteAccount = (key) => {
         this.newAccController.deleteAccount(key)
         this.setState({
-            accountList: this.newAccController.accountList
+            accountList: this.newAccController.accountList,
+            filterAccount: ""
         });
     }
     selectAccount = (key) => {
@@ -39,12 +40,18 @@ class AccountComp extends React.Component {
             accountList: this.newAccController.accountList
         })
     }
+    withdraw = (key,amount) =>{
+        this.newAccController.withdraw(key,amount)
+        this.setState({
+            accountList: this.newAccController.accountList
+        })
+    }
 
     render() {
         return (
             <div className="accountApp">
                 <MainAccountComponent createAccount={this.createAccount} highestBalance={this.highestBalance} />
-                <AccountCurrent account={this.state.filterAccount} deposit={this.deposit}/>
+                <AccountCurrent account={this.state.filterAccount} deposit={this.deposit} withdraw={this.withdraw}/>
                 <AccountList accountInfo={this.state.accountList} deleteAccount={this.deleteAccount} selectAccount={this.selectAccount} />
             </div>
         )
