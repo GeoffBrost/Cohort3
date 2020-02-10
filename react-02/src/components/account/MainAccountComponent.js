@@ -1,5 +1,5 @@
 import React from 'react'
-
+import './Account.css'
 
 class MainAccountComponent extends React.Component {
     state = {
@@ -13,13 +13,13 @@ class MainAccountComponent extends React.Component {
     this.setState({accountName:"", balance:""});
 
 }
-
+    
 render() {
     return (
-        <div className="Maindiv">
+        <div className="MainAccountComp">
             <h1>Accounts</h1>
-            <h2 id="idTotalBalance">Total Balance:</h2><div id="idTotalBalance"></div>
-            <button id="idHighestBalance" value="idHighestBalance">Highest Balance</button>
+    <h2 id="idTotalBalance">Total Balance:</h2><div id="idTotalBalance"></div>
+            <button id="idHighestBalance" value="idHighestBalance" >Highest Balance</button>
             <button id="idLowestBalance" value="idLowestBalance">Lowest Balance</button>
             <p>Account Name:</p>
             <input

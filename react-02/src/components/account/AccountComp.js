@@ -3,6 +3,7 @@ import AccountController from './AccountController'
 import MainAccountComponent from './MainAccountComponent'
 import AccountCurrent from './CurrentAccountCom'
 import AccountList from './AccountList'
+import './Account.css'
 
 
 class AccountComp extends React.Component {
@@ -10,12 +11,9 @@ class AccountComp extends React.Component {
         super();
         this.newAccController = new AccountController();
         this.state = {
-            accountList: this.newAccController.accountList
+            accountList: this.newAccController.accountList,
+            filterAccount: ""
         }
-
-        this.newAccController.createAccount("Checking", 1000);
-        this.newAccController.createAccount("Saving", 5000);
-        this.newAccController.createAccount("Collage Fund", 1);
     }
     createAccount = (accountName, balance) => {
         this.newAccController.createAccount(accountName, balance)
@@ -30,13 +28,19 @@ class AccountComp extends React.Component {
             accountList: this.newAccController.accountList
         });
     }
+    selectAccount = (key) => {
+      this.setState({
+        filterAccount: this.newAccController.selectAccount(key)
+        });  
+        
+    }
 
     render() {
         return (
-            <div>
-                <MainAccountComponent createAccount={this.createAccount} />
-                <AccountCurrent />
-                <AccountList accountInfo={this.state.accountList} deleteAccount={this.deleteAccount} />
+            <div className="accountApp">
+                <MainAccountComponent createAccount={this.createAccount} highestBalance={this.highestBalance} />
+                <AccountCurrent account={this.state.filterAccount}/>
+                <AccountList accountInfo={this.state.accountList} deleteAccount={this.deleteAccount} selectAccount={this.selectAccount} />
             </div>
         )
     }
