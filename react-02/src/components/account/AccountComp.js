@@ -17,8 +17,6 @@ class AccountComp extends React.Component {
             highestAccount: "",
             lowestAccount: ""
         }
-        this.newAccController.createAccount("Checking", "1000")
-        this.newAccController.createAccount("Saving", "500")
     }
 
     createAccount = (accountName, balance) => {

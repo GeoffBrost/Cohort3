@@ -1,11 +1,12 @@
 import React from 'react';
 import './App.css';
-import {Caslte, Select,Robo,Account} from './components/nav/menu'
+import {Caslte, Select,Robo,Account,City} from './components/nav/menu'
 import Clock from './components/Clock.js'
 import Game from './components/tic-tac-toe/ticTacToe'
 import RoboApp from './components/robofriends/RoboApp.js'
 import Home from './components/home/Home.js'
-import AccountComp from './components/account/AccountComp'
+import AccountComp from './components/account/AccountComp.js'
+import CitiesComp from './components/Cities/CitiesComp.js'
 
 
 class App extends React.Component{
@@ -28,7 +29,9 @@ rocketClick = () => {
 accountClick = () => {
   this.setState({selected: <AccountComp />})
 }
-
+citiesClick = ()=> {
+  this.setState({selected: <CitiesComp />})
+}
 render(){
   return(
   <div>
@@ -38,6 +41,7 @@ render(){
       <Select ticTacToeClick={this.ticTacToeClick} />
       <Robo rocketClick={this.rocketClick} />
       <Account accountClick={this.accountClick} />
+      <City citiesClick={this.citiesClick} />
     </header>
       <div>
         {this.state.selected}

@@ -22,7 +22,7 @@ class AccountCurrent extends React.Component {
     render() {
         return (
             <div className="CurrentAccount">
-                <h1>Account Name: {this.props.account.accountName}</h1>
+                <h1>Name: {this.props.account.accountName}</h1>
                 <h3>Balance:{this.props.account.balance} </h3>
                 <input
                     type="Number"

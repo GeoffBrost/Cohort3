@@ -5,6 +5,7 @@ import {ReactComponent as Panick} from '../../images/panick.svg'
 import {ReactComponent as Money} from '../../images/money.svg'
 import {ReactComponent as Rocket} from '../../images/rocket.svg'
 import {ReactComponent as HomeMe} from '../../images/home.svg'
+import {ReactComponent as Cities} from '../../images/office.svg'
 // import { Neutral} from '../ReactIcon.js'
 
 export const Caslte = (props) => {
@@ -25,5 +26,10 @@ export const Robo = (props) => {
 export const Account = (props) => {
     return(
         <Money className={"icon"} alt="Account" onClick={props.accountClick} />
+    )
+}
+export const City = (props) => {
+    return (
+        <Cities className={"icon"} alt="cities" onClick={props.citiesClick} />
     )
 }
