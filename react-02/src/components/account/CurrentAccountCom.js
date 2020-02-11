@@ -10,10 +10,12 @@ class AccountCurrent extends React.Component {
 
     deposit = (e) => {
         this.props.deposit(this.props.account.key, this.state.amount)
+        this.props.totalbal()
         this.setState({amount:""})
     }
     withdraw = (e)=> {
         this.props.withdraw(this.props.account.key, this.state.amount)
+        this.props.totalbal()
         this.setState({amount:""})
     }
 

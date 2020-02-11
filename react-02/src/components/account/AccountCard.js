@@ -5,6 +5,7 @@ export class AccountCard extends Component {
     
     deleteAccount = (e) =>{
         this.props.deleteAccount(this.props.info.key);
+        this.props.totalBal()
     }
     selectAccount = (e) =>{
         this.props.selectAccount(this.props.info.key)

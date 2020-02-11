@@ -37,13 +37,13 @@ class AccountController {
         this.accountList.sort((a, b) => {
             return b.balance - a.balance;
         });
-        return this.accountList[0].balance;
+        return this.accountList[0];
     }
     lowestAccount() {
         this.accountList.sort((a, b) => {
             return a.balance - b.balance;
         });
-        return this.accountList[0].balance;
+        return this.accountList[0];
     }
     selectAccount(key) {
         return this.accountList.filter((account) => account.key === key)[0];
