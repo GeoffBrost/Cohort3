@@ -44,7 +44,7 @@ class Community {
         return this.community;
     }
     deleteCity(key) {
-        this.community = this.community.filter((city) => city.key != key);
+        this.community = this.community.filter((city) => city.key !== key);
     }
     selectCity(key) {
         let sel = this.community.filter(item => item.key === key);
@@ -69,4 +69,4 @@ class Community {
     
 };
 
-export { City, Community }; 
+export default Community ; 
