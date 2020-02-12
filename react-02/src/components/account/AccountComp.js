@@ -1,6 +1,6 @@
 import React from 'react';
 import AccountController from './AccountController'
-import MainAccountComponent from './MainAccountComponent'
+import MainAccountComponent from './MainAccountComp'
 import AccountCurrent from './CurrentAccountCom'
 import AccountList from './AccountList'
 import './Account.css'
