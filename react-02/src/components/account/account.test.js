@@ -1,6 +1,6 @@
 import React from 'react';
-import AccountController from "./AccountController.js.js"
-import Account from "./Account.js.js"
+import AccountController from "./AccountController.js"
+import Account from "./Account.js"
 // import functions from "./accounts.functions"
 
 test("test Accounts constructer", () => {
@@ -47,16 +47,16 @@ test("AccountController Create account", () => {
 });
 
 test("Account controller delete test", () => {
-    const controller1 = new AccountController();
-    controller1.createAccount("Checking", 1000);
-    controller1.createAccount("Saving", 5000);
-    controller1.createAccount("Collage Fund", 1);
-    expect(controller1.accountList).toEqual([
+    const Account = new AccountController();
+    Account.createAccount("Checking", 1000);
+    Account.createAccount("Saving", 5000);
+    Account.createAccount("Collage Fund", 1);
+    expect(Account.accountList).toEqual([
         { accountName: 'Checking', balance: 1000, key: 0 },
         { accountName: 'Saving', balance: 5000, key: 1 },
         { accountName: 'Collage Fund', balance: 1, key: 2 }]);
-    controller1.deleteAccount("Saving");
-    expect(controller1.accountList).toEqual([
+    Account.deleteAccount(1);
+    expect(Account.accountList).toEqual([
         { accountName: 'Checking', balance: 1000, key: 0 },
         { accountName: 'Collage Fund', balance: 1, key: 2 }]);
 });
@@ -69,29 +69,33 @@ test("total balance on accounts ", () => {
     expect(controller1.totalAccountBalance()).toBe(1250);
 });
 test("higest account", () => {
-    const controller1 = new AccountController();
-    controller1.createAccount("checking", 150);
-    controller1.createAccount("Collage Fund", 10000);
-    controller1.createAccount("Saving", 10);
-    expect(controller1.highestAccount()).toEqual(10000);
-    const controller2 = new AccountController();
-    controller2.createAccount("checking", 1500);
-    controller2.createAccount("Collage Fund", 100);
-    controller2.createAccount("Saving", 10);
-    expect(controller2.highestAccount()).toEqual(1500);
+    const account = new AccountController();
+    account.createAccount("checking", 150);
+    account.createAccount("Collage Fund", 10000);
+    account.createAccount("Saving", 10);
+    expect(account.highestAccount()).toEqual
+    ({"accountName": "Collage Fund", "balance": 10000, "key": 1});
+    const account2 = new AccountController();
+    account2.createAccount("checking", 1500);
+    account2.createAccount("Collage Fund", 100);
+    account2.createAccount("Saving", 10);
+    expect(account2.highestAccount()).toEqual
+    ({"accountName": "checking", "balance": 1500, "key": 0});
 });
 
 test("Lowest Amount Account", () => {
-    const controller1 = new AccountController();
-    controller1.createAccount("Checking", 250);
-    controller1.createAccount("Saving", 15000);
-    controller1.createAccount("Collage Fund", 100);
-    expect(controller1.lowestAccount()).toEqual(100);
-    const controller2 = new AccountController();
-    controller2.createAccount("Checking", 11250);
-    controller2.createAccount("Saving", 100);
-    controller2.createAccount("Collage Fund", 2500);
-    expect(controller2.lowestAccount()).toEqual(100);
+    const account1 = new AccountController();
+    account1.createAccount("Checking", 250);
+    account1.createAccount("Saving", 15000);
+    account1.createAccount("Collage Fund", 100);
+    expect(account1.lowestAccount()).toEqual
+    ({"accountName": "Collage Fund", "balance": 100, "key": 2});
+    const account2 = new AccountController();
+    account2.createAccount("Checking", 11250);
+    account2.createAccount("Saving", 100);
+    account2.createAccount("Collage Fund", 2500);
+    expect(account2.lowestAccount()).toEqual
+    ({"accountName": "Saving", "balance": 100, "key": 1});
 
 });
 function createBigDiv() {
@@ -119,7 +123,6 @@ test("Controller Account deposit", () => {
     controller1.createAccount("d", 120);
     console.log(controller1.accountList[1].balance, controller1.accountList[1].accountName);
     controller1.deposit(1, 5)
-    // console.log(controller1);
     console.log(controller1.accountList[1].balance);
 
 })

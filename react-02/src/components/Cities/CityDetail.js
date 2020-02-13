@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 
 export class CityDetail extends Component {
+    typeCity = ()=>{
+
+    }
     render() {
-        console.log(this.props.city.cityName)
         return (
             <div>
                 <h1>Name: {this.props.city.cityName}</h1>

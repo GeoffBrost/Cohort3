@@ -1,4 +1,5 @@
-import { City, Community } from "./city.class.js"
+import Community from "./cityclass.js"
+import City from './city'
 
 test("city show", () => {
     let city1 = new City("Calgary", 8, 22, 55, 1, 1);
@@ -31,6 +32,8 @@ test("how big is the city", () => {
     expect(city4.howBig(4, 800)).toBe("Village");
     expect(city5.howBig(5, 50)).toBe("Hamlet");
 });
+
+// -------------------------------------------------------
 test("create city with community", () => {
     let city1 = new Community();
     city1.createCity("Calgary", 10, 50, 40);
