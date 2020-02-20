@@ -1,5 +1,5 @@
 class City {
-    constructor(cityName, population, latitude, longitude, key) {
+    constructor(cityName, population, latitude, longitude) {
         this.cityName = cityName;
         this.population = population;
         this.latitude = latitude;

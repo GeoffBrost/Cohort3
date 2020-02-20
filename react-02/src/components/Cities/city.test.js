@@ -1,5 +1,5 @@
-import Community from "./cityclass.js"
-import City from './city'
+import Community from "./communityclass"
+import City from './cityclass'
 
 test("city show", () => {
     let city1 = new City("Calgary", 8, 22, 55, 1, 1);
@@ -11,8 +11,8 @@ test("city show", () => {
 test("city people moveIn", () => {
     let city1 = new City("Calgary", 10, 22, 55, 23, 1);
     let city2 = new City("Red Deer", 15, 45, 35, 2);
-    expect(city1.movedIn(1, 5)).toBe(15);
-    expect(city2.movedIn(2, 10)).toBe(25);
+    expect(city1.cityMovedIn(1, 5)).toBe(15);
+    expect(city2.cityMovedIn(2, 10)).toBe(25);
 });
 test("people moving out", () => {
     let city1 = new City("Calgary", 10, 20, 30, 1);
