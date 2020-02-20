@@ -10,7 +10,7 @@ export class MainCitiesComp extends Component {
     }
     onChange = (e)=> this.setState({[e.target.name]: e.target.value })
     onSubmit =(e)=> {
-        this.props.createCity(this.state.name,this.state.population,this.state.longitude,this.state.latiude)
+        this.props.createCity(this.state.name,Number(this.state.population),this.state.latiude,this.state.longitude)
         this.setState({name:"",population:"",longitude:"",latiude:""})
     }
     render() {
@@ -30,6 +30,7 @@ export class MainCitiesComp extends Component {
                 value={this.state.population}
                 onChange={this.onChange}               
                 ></input>
+
                 <input 
                 type='Number'
                 placeholder='Longitude'
@@ -37,6 +38,7 @@ export class MainCitiesComp extends Component {
                 value={this.state.longitude}
                 onChange={this.onChange}
                 ></input>
+
                 <input
                 type='Number'
                 placeholder='Latiude'
@@ -44,6 +46,7 @@ export class MainCitiesComp extends Component {
                 value={this.state.latiude}
                 onChange={this.onChange}
                 ></input>
+
                 <button onClick={this.onSubmit}>Create City</button>
             </div>
         )
