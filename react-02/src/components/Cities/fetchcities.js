@@ -1,16 +1,10 @@
+const url = 'http://localhost:5000/';
 
 function getText() {
-    fetch('http://localhost:5000')
+    fetch(url)
     .then(function(res){
-        console.log(res)
-    })
-
-
-    // .then((res) => res.json())
-    // .then((data) => {
-    //     console.log(data)
-    // })
-        
-    
+        console.log('first call',res)
+    })   
 }
-export default getText;
+
+export default getText ;
