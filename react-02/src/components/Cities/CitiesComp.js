@@ -4,7 +4,7 @@ import CityList from './CityList'
 import Community from './communityclass'
 import CityDetail from './CityDetail'
 import CommunityDetail from './CommunityDetail'
-import {getText, postTest} from './fetchcities'
+// import {getText, postTest} from './fetchcities'
 
 export class CitiesComp extends Component {
     constructor(props) {
@@ -56,8 +56,8 @@ export class CitiesComp extends Component {
         return (
             <div>
                 <h1>Cities</h1>
-                <button onClick={getText}>Click ME ME ME</button>
-                <button onClick={postTest}>Post me me me </button>
+                {/* <button onClick={getText}>Click ME ME ME</button>
+                <button onClick={postTest}>Post me me me </button> */}
                 <MainCitiesComp createCity={this.createCity} 
                 />
                 <CityDetail city={this.state.filterCity} MoveIn={this.moveIn} MoveOut={this.moveOut} communityPopulation={this.communityPopulation} howBig={this.state.type}

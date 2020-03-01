@@ -7,6 +7,7 @@ import RoboApp from './components/robofriends/RoboApp.js'
 import Home from './components/home/Home.js'
 import AccountComp from './components/account/AccountComp.js'
 import CitiesComp from './components/Cities/CitiesComp.js'
+import Facebook from './components/facebook/Facebook.js'
 
 
 class App extends React.Component{
@@ -37,6 +38,7 @@ render(){
   <div>
       <header className="main-header">
       <Clock />
+      <Facebook />
       <Caslte homeClick={this.homeClick} />
       <Select ticTacToeClick={this.ticTacToeClick} />
       <Robo rocketClick={this.rocketClick} />
