@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import FacebookLogin from 'react-facebook-login';
+require('dotenv').config()
 
 class Facebook extends Component {
     state = {
@@ -36,7 +37,7 @@ class Facebook extends Component {
             );
         } else {
             fbContent = (<FacebookLogin
-                appId="187935692437403"
+                appId= 'FACEBOOK_ID'
                 autoLoad={true}
                 fields="name,email"
                 onClick={this.componentClicked}
