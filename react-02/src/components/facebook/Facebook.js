@@ -32,7 +32,6 @@ class Facebook extends Component {
             name:'',
             email:''
         })
-    FB.logout()
     }
     
     render() {
@@ -53,7 +52,7 @@ class Facebook extends Component {
             
             fbContent = (<FacebookLogin
                 appId= '187935692437403'
-                autoLoad={true}
+                autoLoad={false}
                 fields="name,email"
                 onClick={this.componentClicked}
                 callback={this.responseFacebook} />  

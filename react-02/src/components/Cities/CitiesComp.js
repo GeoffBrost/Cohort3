@@ -4,7 +4,8 @@ import CityList from './CityList'
 import Community from './communityclass'
 import CityDetail from './CityDetail'
 import CommunityDetail from './CommunityDetail'
-// import {getText, postTest} from './fetchcities'
+
+
 
 export class CitiesComp extends Component {
     constructor(props) {
@@ -21,6 +22,14 @@ export class CitiesComp extends Component {
         this.newCity.createCity('Calgary', 1000, 10, 5)
         this.newCity.createCity('Red Deer', 500, 14, 20)
     }
+    // API Fetch
+    fetchHandler = async () => {
+    const response = await fetch("http://localhost:5000/api/all")
+    const responseData = await response.json()
+    console.log(responseData)
+    }
+
+
     createCity = (name, population, latitude, longitude) => {
         this.newCity.createCity(name, population, latitude, longitude)
         this.setState({
@@ -55,9 +64,8 @@ export class CitiesComp extends Component {
     render() {
         return (
             <div>
+                <button onClick={this.fetchHandler}>Fetch</button>
                 <h1>Cities</h1>
-                {/* <button onClick={getText}>Click ME ME ME</button>
-                <button onClick={postTest}>Post me me me </button> */}
                 <MainCitiesComp createCity={this.createCity} 
                 />
                 <CityDetail city={this.state.filterCity} MoveIn={this.moveIn} MoveOut={this.moveOut} communityPopulation={this.communityPopulation} howBig={this.state.type}

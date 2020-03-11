@@ -1,4 +1,5 @@
 from flask import Flask, render_template
+from flask_cors import CORS
 app = Flask(__name__, template_folder=
 'build', static_folder= 'build/static')
 
@@ -12,9 +13,6 @@ counter =0
 def hello():
     return 'hello world'
 
-@app.route('/react')
-def react():
-    return render_template('index.html')
 
 @app.route('/api/all')
 def api_all():

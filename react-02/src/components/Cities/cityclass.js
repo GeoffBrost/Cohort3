@@ -1,9 +1,25 @@
 class City {
     constructor(cityName, population, latitude, longitude, key) {
         this.cityName = cityName;
-        this.population = population;
-        this.latitude = latitude;
+        if (population > 0){
+            this.population = population;
+        }else {
+            this.population = 0;
+        }
+        if (latitude < -90){
+            this.latitude =-90
+        }else if (latitude > 90){
+            this.latitude = 90
+        }else{
+            this.latitude = latitude;
+        }
+        if(longitude < -180){
+            this.longitude = -180
+        }else if (longitude > 180){
+            this.longitude = 180
+        }else{
         this.longitude = longitude;
+        }
         this.key = key;
 
     }
