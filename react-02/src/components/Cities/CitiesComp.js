@@ -17,16 +17,35 @@ export class CitiesComp extends Component {
             mostNorthern: "",
             mostSouthern: "",
             communityPopulation: "",
-            type:""
+            type:"",
+            fetched:""
         }
-        this.newCity.createCity('Calgary', 1000, 10, 5)
-        this.newCity.createCity('Red Deer', 500, 14, 20)
+        
+    }
+    componentDidMount(){
+        this.loadCities()
     }
     // API Fetch
-    fetchHandler = async () => {
-    const response = await fetch("http://localhost:5000/api/all")
+    loadCities = async () =>{
+        const url = "http://localhost:5000/api/all"
+        const responseData = await this.fetchHandler(url);
+        for(let city of responseData['Cities']){
+            console.log(responseData['Cities'])
+            console.log(city)
+           this.newCity.createCity(
+            city['Name'],
+            city['Population'],
+            city['Longitude'],
+            city['Latitude']
+           );
+        }
+        console.log(this.newCity)
+        // this.setState({ fetched: "I ran me some loader"})
+    }
+    fetchHandler = async (url) => { 
+    const response = await fetch(url)
     const responseData = await response.json()
-    console.log(responseData)
+    return responseData
     }
 
 
@@ -65,6 +84,7 @@ export class CitiesComp extends Component {
         return (
             <div>
                 <button onClick={this.fetchHandler}>Fetch</button>
+                <p>Cities:{this.state.fetched}</p>
                 <h1>Cities</h1>
                 <MainCitiesComp createCity={this.createCity} 
                 />

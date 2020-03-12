@@ -8,8 +8,8 @@ cities = [
     {'Name':'Calgary', 'Population':4000, 'Longitude':0, 'Latitude':20, 'Counter':0},
     {'Name':'Red Deer', 'Population':500, 'Longitude':10, 'Latitude':30, 'Counter':1},
     {'Name':'Winnipeg', 'Population':1000, 'Longitude':15, 'Latitude':40, 'Counter':2},
-    
 ]
+
 
 counter =0
 

@@ -5,8 +5,8 @@ class Community {
         this.community = [];
         this.counterID = 0;
     }
-    createCity(cityName, population, latitude, longitude) {
-        const newCity = new City(cityName, population, latitude, longitude
+    createCity(name, population, latitude, longitude) {
+        const newCity = new City(name, population, latitude, longitude
             , this.counterID);
         this.community.push(newCity);
         this.counterID++
