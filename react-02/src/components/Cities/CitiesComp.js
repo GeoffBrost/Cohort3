@@ -30,18 +30,31 @@ export class CitiesComp extends Component {
         const url = "http://localhost:5000/api/all"
         const responseData = await this.fetchHandler(url);
         for(let city of responseData['Cities']){
-            console.log(responseData['Cities'])
-            console.log(city)
            this.newCity.createCity(
             city['Name'],
             city['Population'],
             city['Longitude'],
             city['Latitude']
            );
-        }
-        console.log(this.newCity)
-        // this.setState({ fetched: "I ran me some loader"})
+           }
     }
+    fetchCityAdd = async (name,population,longitude,latitude)=>{
+        const url = `http://localhost:5000/api/add/${name}/${population}/${longitude}/${latitude}`
+        console.log(url)
+
+    }
+    addCityHandler = async (name,population,longitude,latitude) =>{
+        if(name.length > 0){
+            if (name > 0 && Math.round(population) ===
+            population) {
+                if(longitude <= 180 && longitude >= -180 && latitude <= 90 && latitude >= -90){
+                    await this.fetchCityAdd(name,population,longitude,latitude);
+                    await this.loadCities()
+                }
+            }
+        }
+    }
+
     fetchHandler = async (url) => { 
     const response = await fetch(url)
     const responseData = await response.json()
@@ -83,10 +96,10 @@ export class CitiesComp extends Component {
     render() {
         return (
             <div>
-                <button onClick={this.fetchHandler}>Fetch</button>
+                <button onClick={this.fetchCityAdd}>Fetch</button>
                 <p>Cities:{this.state.fetched}</p>
                 <h1>Cities</h1>
-                <MainCitiesComp createCity={this.createCity} 
+                <MainCitiesComp createCity={this.addCityHandler} 
                 />
                 <CityDetail city={this.state.filterCity} MoveIn={this.moveIn} MoveOut={this.moveOut} communityPopulation={this.communityPopulation} howBig={this.state.type}
                 />
